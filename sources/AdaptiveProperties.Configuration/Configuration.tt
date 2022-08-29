@@ -1,0 +1,77 @@
+<#@ template language="C#" hostspecific="true" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.ComponentModel.Design" #>
+<#
+    var absolutePath = Host.ResolvePath("Code.Configuration.cs");
+
+    foreach (var line in File.ReadAllLines(absolutePath))
+    {
+        if (line.Trim().StartsWith("private") || line.Trim().StartsWith("// @formatter"))
+            continue; 
+
+        var lineToWrite = line.Replace("Code_", String.Empty)
+            .Replace("internal static", "public static")
+            .Replace("Helper.CreatePropertyConfiguration", "new PropertyConfiguration")
+            .Replace("Helper.CreateModeConfiguration", "new ModeConfiguration")
+                          + "\n";
+
+        var matchGeneric = new Regex("<[a-zA-Z]+, [a-zA-Z]+>\\(").Match(lineToWrite);
+
+        if (matchGeneric.Success)
+        {
+            lineToWrite = lineToWrite.Replace(matchGeneric.Value,
+                matchGeneric.Value.Replace("<", "(\"")
+                    .Replace(", ", ("\", \""))
+                    .Replace(">(", ("\","))
+                );
+            Write(lineToWrite);
+            continue;
+        }
+
+        var matchPropertyDefinition = new Regex("view => view.").Match(lineToWrite);
+
+        if (matchPropertyDefinition.Success)
+        {
+            lineToWrite = lineToWrite.Trim();
+            var hasNextLines = lineToWrite.EndsWith((","));
+
+            if (hasNextLines)
+            {
+                lineToWrite = lineToWrite.Substring(0, lineToWrite.Length - 1);
+            }
+
+            lineToWrite = lineToWrite.Replace("view => view.", "\"") + "\"";
+
+            if (hasNextLines)
+            {
+                lineToWrite += ",";
+            }
+            
+            Write(lineToWrite);
+            continue;
+        }
+
+        var matchCustomApplyHandler = new Regex(".+ => .+").Match(lineToWrite);
+
+        if (matchCustomApplyHandler.Success)
+        {
+            lineToWrite = $"\"{lineToWrite.Trim()}\"";
+            Write(lineToWrite);
+            continue;
+        }
+
+        var matchCustomCheckFunc = new Regex("^[a-zA-Z].+,").Match(lineToWrite.Trim());
+
+        if (matchCustomCheckFunc.Success)
+        {
+            lineToWrite = $"\"{lineToWrite.Trim().Replace(",", String.Empty)}\",";
+            Write(lineToWrite);
+            continue;
+        }
+
+        Write(lineToWrite);
+    }
+#>

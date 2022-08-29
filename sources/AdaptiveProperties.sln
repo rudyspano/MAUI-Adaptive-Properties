@@ -1,0 +1,34 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31611.283
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptiveProperties.Demo", "AdaptiveProperties.Demo\AdaptiveProperties.Demo.csproj", "{9A3BB15E-A2D1-49E3-B59A-70F393356F75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveProperties.MAUI", "AdaptiveProperties.MAUI\AdaptiveProperties.MAUI.csproj", "{6CA0E2CF-3331-4B1D-A2EC-0D1BDA86BE80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveProperties.Configuration", "AdaptiveProperties.Configuration\AdaptiveProperties.Configuration.csproj", "{D5F8C986-7113-42D2-9873-9C0972F06BEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Demo", "_Demo", "{6F19A81A-32F1-45C1-84F9-828C53561DC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CA0E2CF-3331-4B1D-A2EC-0D1BDA86BE80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA0E2CF-3331-4B1D-A2EC-0D1BDA86BE80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA0E2CF-3331-4B1D-A2EC-0D1BDA86BE80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA0E2CF-3331-4B1D-A2EC-0D1BDA86BE80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5F8C986-7113-42D2-9873-9C0972F06BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F8C986-7113-42D2-9873-9C0972F06BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F8C986-7113-42D2-9873-9C0972F06BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F8C986-7113-42D2-9873-9C0972F06BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A3BB15E-A2D1-49E3-B59A-70F393356F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A3BB15E-A2D1-49E3-B59A-70F393356F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A3BB15E-A2D1-49E3-B59A-70F393356F75} = {6F19A81A-32F1-45C1-84F9-828C53561DC7}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModel="clr-namespace:AdaptiveProperties.Demo.ViewModel"
+             xmlns:Model="clr-namespace:AdaptiveProperties.Demo.Model"
+             xmlns:m="clr-namespace:AdaptiveProperties.MAUI.M;assembly=AdaptiveProperties.MAUI"
+             x:Class="AdaptiveProperties.Demo.HomePage" x:DataType="viewModel:HomeViewModel" x:Name="HomePageInstance">
+
+    <ContentPage.BindingContext>
+        <viewModel:HomeViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid HeightRequest="200" BackgroundColor="LightGray" >
+                <Label Margin="10" Text="Hello MAUI" FontSize="40" VerticalOptions="Center"/>
+            </Grid>
+            
+            <Grid ColumnDefinitions="*,*,*" RowDefinitions="100,100" ColumnSpacing="4" RowSpacing="4" Padding="4"
+                  m:H.ColumnDefinitions="*,*,*,*">
+                <Frame Grid.RowSpan="2" BackgroundColor="Red" CornerRadius="4">
+                    <Label VerticalTextAlignment="Center" TextColor="White" Text="ShortCut 1"/>
+                </Frame>
+                <Frame Grid.RowSpan="2" Grid.Column="1" BackgroundColor="Orange" CornerRadius="4">
+                    <Label VerticalTextAlignment="Center" TextColor="White" Text="ShortCut 2"/>
+                </Frame>
+                <Frame Grid.Column="2" BackgroundColor="Green" CornerRadius="4"
+                       m:H.RowSpan="2">
+                    <Label VerticalTextAlignment="Center" TextColor="White" Text="ShortCut 3"/>
+                </Frame>
+                <Frame Grid.Column="2" Grid.Row="1" BackgroundColor="Purple" CornerRadius="4"
+                      m:H.RowSpan="2" m:H.Column="3" m:H.Row="0">
+                    <Label VerticalTextAlignment="Center" TextColor="White" Text="ShortCut 4"/>
+                </Frame>
+            </Grid>
+
+            <FlexLayout Wrap="Wrap" BindableLayout.ItemsSource="{Binding ShelfList}" JustifyContent="Center">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="Model:Shelf">
+                        <Grid HeightRequest="150" WidthRequest="200"  RowDefinitions="Auto">
+                            <Frame HeightRequest="150" WidthRequest="200" CornerRadius="0" BorderColor="Gray">
+                                <VerticalStackLayout>
+                                    <Image HeightRequest="80" Source="{Binding ImageUrl}"/>
+                                    <Label Text="{Binding Name}" />
+                                </VerticalStackLayout>
+                            </Frame>
+                            <Button BackgroundColor="Transparent" Command="{Binding BindingContext.GotToShelfCommand,  Source={x:Reference HomePageInstance}}"
+                                    CommandParameter="{Binding}"/>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </FlexLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

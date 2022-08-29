@@ -1,0 +1,69 @@
+<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Runtime" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ assembly name="$(SolutionDir)AdaptiveProperties.Configuration/bin/Debug/net6.0/AdaptiveProperties.Configuration.dll" #>
+<#@ import namespace="AdaptiveProperties.MAUI" #>
+
+namespace AdaptiveProperties.MAUI.M;
+
+<#
+    foreach (var mode in Configuration.Modes)
+    {
+#>
+  /// <summary>
+  /// <#= mode.Comment #>
+  /// </summary>
+  public static class <#= mode.Name #>
+  {
+    <#
+        var automaticTriggering = "true";
+
+#>
+
+    private static Func<bool> CheckFunc => () => <#= mode.CheckFuncString #>;
+<#
+        if (mode.HasCustomActivationCheckingFunc)
+        {
+            automaticTriggering = "false";
+#>
+    private static Func<bool> _customActivationCheckingFunc;
+
+    public static void SetModeActivationChecking(Func<bool> activationCheckingFunc)
+    {
+        _customActivationCheckingFunc = activationCheckingFunc;
+    }
+
+    public static void TriggerModeActivationChecking()
+    {
+      PropertyDefinition.TriggerActivationChecking("<#= mode.Name #>");
+    }
+<#
+        }
+
+        foreach (var propertyDefinition in Configuration.Properties)
+        {
+#> 
+
+    public static readonly BindableProperty <#= propertyDefinition.PropertyName #>Property = BindableProperty.CreateAttached(
+      "<#= propertyDefinition.PropertyName #>", typeof(<#= propertyDefinition.PropertyType #>), typeof(<#= mode.Name #>), default(<#= propertyDefinition.PropertyType #>),
+      propertyChanged: <#= propertyDefinition.PropertyName #>Changed);
+
+    public static void Set<#= propertyDefinition.PropertyName #>(BindableObject element, <#= propertyDefinition.PropertyType #> value) =>
+      element.SetValue(<#= propertyDefinition.PropertyName #>Property, value);
+
+    public static <#= propertyDefinition.PropertyType #> Get<#= propertyDefinition.PropertyName #>(BindableObject element) =>
+      (<#= propertyDefinition.PropertyType #>)element.GetValue(<#= propertyDefinition.PropertyName #>Property);
+
+    private static void <#= propertyDefinition.PropertyName #>Changed(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<<#= propertyDefinition.ViewType #>, <#= propertyDefinition.PropertyType #>>.ListenProperty(bindable, newvalue, CheckFunc,
+        <#= propertyDefinition.ApplyActionString #>, <#= automaticTriggering #>, "<#= mode.Name #>");
+    }
+<#
+        }
+#>
+}
+<#
+    }
+#>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AdaptiveProperties.Demo.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AdaptiveProperties.Demo"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="VerticalToHorizontal">
+            <ShellContent Title="Home"
+                ContentTemplate="{DataTemplate local:HomePage}"
+                Route="Home" /> 
+        </Tab>
+
+        <Tab Title="PhoneToTablet">
+            <ShellContent Title="Home"
+                ContentTemplate="{DataTemplate local:HomePage}"
+                Route="Home2" />
+        </Tab>
+
+        <Tab Title="CustomMode">
+            <ShellContent Title="Home"
+                ContentTemplate="{DataTemplate local:HomePage}"
+                Route="Home3" />
+        </Tab>
+
+    </TabBar>
+</Shell>
