@@ -16,10 +16,10 @@ namespace AdaptiveProperties.MAUI.M;
   /// </summary>
   public static class <#= mode.Name #>
   {
-    <#
+<#
         var automaticTriggering = "true";
 
-    #>
+#>
 
     private static Func<bool> CheckFunc => () => <#= mode.CheckFuncString #>;
 <#
