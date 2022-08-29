@@ -19,7 +19,7 @@ namespace AdaptiveProperties.MAUI.M;
     <#
         var automaticTriggering = "true";
 
-#>
+    #>
 
     private static Func<bool> CheckFunc => () => <#= mode.CheckFuncString #>;
 <#
