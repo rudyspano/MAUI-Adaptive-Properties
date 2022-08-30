@@ -1,15 +1,15 @@
-<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ template language="C#" hostspecific="false"#>
 <#@ import namespace="System.Text" #>
-<#@ import namespace="System.Runtime" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ assembly name="$(SolutionDir)AdaptiveProperties.Configuration/bin/Debug/net6.0/AdaptiveProperties.Configuration.dll" #>
+<#@ import namespace="System.Runtime" #>
+<#@ assembly name="$(SolutionDir)AdaptiveProperties.Configuration\bin\Debug\net6.0\AdaptiveProperties.Configuration.dll" #>
 <#@ import namespace="AdaptiveProperties.MAUI" #>
 
 namespace AdaptiveProperties.MAUI.M;
 
 <#
     foreach (var mode in Configuration.Modes)
-    {
+    { 
 #>
   /// <summary>
   /// <#= mode.Comment #>

@@ -18,22 +18,35 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Update="ViewProperties.tt">
+      <None Update="TextTemplate1.tt">
         <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>TextTemplate1.txt</LastGenOutput>
+      </None>
+      <None Update="TextTemplate1.txt">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>TextTemplate1.tt</DependentUpon>
+      </None>
+      <None Update="ViewProperties.tt">
+        <Generator>TextTemplatingFileGeneratorCore</Generator>
         <LastGenOutput>ViewProperties.cs</LastGenOutput>
       </None>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="ViewProperties.cs">
-        <AutoGen>True</AutoGen>
-        <DesignTime>True</DesignTime>
-        <DependentUpon>ViewProperties.tt</DependentUpon>
-      </Compile>
+      <ProjectReference Include="..\AdaptiveProperties.Configuration\AdaptiveProperties.Configuration.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AdaptiveProperties.Configuration\AdaptiveProperties.Configuration.csproj" />
+      <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="ViewProperties.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ViewProperties.tt</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

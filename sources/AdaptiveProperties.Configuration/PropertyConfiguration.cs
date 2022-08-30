@@ -5,26 +5,26 @@
 
 namespace AdaptiveProperties.Configuration;
 
-    public class PropertyConfiguration
+public class PropertyConfiguration
+{
+    public string ViewType { get; }
+
+    public string PropertyName { get; }
+
+    public string PropertyType { get; }
+
+    public string ApplyActionString { get; }
+
+    public PropertyConfiguration(string viewType, string propertyType, string propertyName,
+        string customApplyHandler = null)
     {
-        public string ViewType { get; }
+        ViewType = viewType;
+        PropertyName = propertyName;
+        PropertyType = propertyType;
 
-        public string PropertyName { get; }
-
-        public string PropertyType { get; }
-
-        public string ApplyActionString { get; }
-
-        public PropertyConfiguration(string viewType, string propertyType, string propertyName,
-            string customApplyHandler = null)
-        {
-            ViewType = viewType;
-            PropertyName = propertyName;
-            PropertyType = propertyType;
-
-            ApplyActionString =
-                customApplyHandler
-                //default apply action
-                ?? @"(view,value) => { var previousValue = view." + PropertyName + "; view." + PropertyName + " = value; return (true, previousValue); }";
-        }
+        ApplyActionString =
+            customApplyHandler
+            //default apply action
+            ?? @"(view,value) => { var previousValue = view." + PropertyName + "; view." + PropertyName + " =" + (PropertyType.EndsWith("?") ? "value.Value" : "value") + "; return (true, previousValue); }";
     }
+}

@@ -5,7 +5,7 @@ namespace AdaptiveProperties.MAUI;
 
 internal static class Code_Configuration
 {
-    internal static PropertyConfiguration[] Code_Properties = new[]
+    internal static PropertyConfiguration[] Code_Properties = new PropertyConfiguration[]
     {
         Helper.CreatePropertyConfiguration<Grid, string>(
             view => view.ColumnDefinitions,

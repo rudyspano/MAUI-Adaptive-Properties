@@ -1,43 +1,49 @@
-﻿// ReSharper disable CheckNamespace
+
+
+
+
+
+
+// ReSharper disable CheckNamespace
 using AdaptiveProperties.Configuration;
 
 namespace AdaptiveProperties.MAUI;
 
 public static class Configuration
 {
-    public static PropertyConfiguration[] Properties = new[]
+    public static PropertyConfiguration[] Properties = new PropertyConfiguration[]
     {
         new PropertyConfiguration("Grid", "string",
 "ColumnDefinitions","(view,value) => { var converter = new ColumnDefinitionCollectionTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.ColumnDefinitions, typeof(string)); view.ColumnDefinitions = (ColumnDefinitionCollection)converter.ConvertFrom(value); return (true, previousValue); }"        ),
         new PropertyConfiguration("Grid", "string",
 "RowDefinitions","(view,value) => { var converter = new RowDefinitionCollectionTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.RowDefinitions, typeof(string)); view.RowDefinitions = (RowDefinitionCollection)converter.ConvertFrom(value); return (true, previousValue); }"        ),
-        new PropertyConfiguration("View", "int",
+        new PropertyConfiguration("View", "int?",
             "Row",
-"(view, value) => { var previousValue = Grid.GetRow(view); Grid.SetRow(view,value); return (true, previousValue); }"        ),
-        new PropertyConfiguration("View", "int",
+"(view, value) => { var previousValue = Grid.GetRow(view); Grid.SetRow(view,value.Value); return (true, previousValue); }"        ),
+        new PropertyConfiguration("View", "int?",
             "Column",
-"(view, value) => { var previousValue = Grid.GetColumn(view); Grid.SetColumn(view,value); return (true, previousValue); }"        ),
-        new PropertyConfiguration("View", "int",
+"(view, value) => { var previousValue = Grid.GetColumn(view); Grid.SetColumn(view,value.Value); return (true, previousValue); }"        ),
+        new PropertyConfiguration("View", "int?",
             "RowSpan",
-"(view, value) => { var previousValue = Grid.GetRowSpan(view); Grid.SetRowSpan(view,value); return (true, previousValue); }"        ),
-        new PropertyConfiguration("View", "int",
+"(view, value) => { var previousValue = Grid.GetRowSpan(view); Grid.SetRowSpan(view,value.Value); return (true, previousValue); }"        ),
+        new PropertyConfiguration("View", "int?",
             "ColumnSpan",
-"(view, value) => { var previousValue = Grid.GetColumnSpan(view); Grid.SetColumnSpan(view,value); return (true, previousValue); }"        ),
-        new PropertyConfiguration("View", "double",
+"(view, value) => { var previousValue = Grid.GetColumnSpan(view); Grid.SetColumnSpan(view,value.Value); return (true, previousValue); }"        ),
+        new PropertyConfiguration("View", "double?",
 "HeightRequest"        ),
-        new PropertyConfiguration("View", "double",
+        new PropertyConfiguration("View", "double?",
 "WidthRequest"        ),
-        new PropertyConfiguration("View", "double",
+        new PropertyConfiguration("View", "double?",
 "MinimumHeightRequest"        ),
-        new PropertyConfiguration("View", "double",
+        new PropertyConfiguration("View", "double?",
 "MinimumWidthRequest"        ),
         new PropertyConfiguration("View", "LayoutOptions",
 "HorizontalOptions"        ),
         new PropertyConfiguration("View", "LayoutOptions",
 "VerticalOptions"        ),
-        new PropertyConfiguration("View", "bool",
+        new PropertyConfiguration("View", "bool?",
 "IsVisible"        ),
-        new PropertyConfiguration("View", "double",
+        new PropertyConfiguration("View", "double?",
 "Opacity"        ),
         new PropertyConfiguration("View", "Thickness",
 "Margin"        ),
@@ -51,17 +57,17 @@ public static class Configuration
 "VerticalTextAlignment"        ),
         new PropertyConfiguration("Layout", "Thickness",
 "Padding"        ),
-        new PropertyConfiguration("StackBase", "double",
+        new PropertyConfiguration("StackBase", "double?",
 "Spacing"        ),
         new PropertyConfiguration("StackLayout", "StackOrientation",
 "Orientation"        ),
-        new PropertyConfiguration("Grid", "double",
+        new PropertyConfiguration("Grid", "double?",
 "RowSpacing"        ),
-        new PropertyConfiguration("Grid", "double",
+        new PropertyConfiguration("Grid", "double?",
 "ColumnSpacing"        ),
         new PropertyConfiguration("Image", "ImageSource",
 "Source"        ),
-        new PropertyConfiguration("Frame", "float",
+        new PropertyConfiguration("Frame", "float?",
 "CornerRadius"        ),
     };
     

@@ -10,7 +10,7 @@
     foreach (var line in File.ReadAllLines(absolutePath))
     {
         if (line.Trim().StartsWith("private") || line.Trim().StartsWith("// @formatter"))
-            continue; 
+            continue;
 
         var lineToWrite = line.Replace("Code_", String.Empty)
             .Replace("internal static", "public static")
@@ -18,7 +18,7 @@
             .Replace("Helper.CreateModeConfiguration", "new ModeConfiguration")
                           + "\n";
 
-        var matchGeneric = new Regex("<[a-zA-Z]+, [a-zA-Z]+>\\(").Match(lineToWrite);
+        var matchGeneric = new Regex("<[a-zA-Z]+\\?{0,1}, [a-zA-Z]+\\?{0,1}>\\(").Match(lineToWrite);
 
         if (matchGeneric.Success)
         {
