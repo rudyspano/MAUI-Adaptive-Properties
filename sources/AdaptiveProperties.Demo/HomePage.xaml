@@ -36,11 +36,13 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="Model:Shelf">
                         <Grid HeightRequest="150" WidthRequest="200"  RowDefinitions="Auto">
-                            <Frame HeightRequest="150" WidthRequest="200" CornerRadius="0" BorderColor="Gray">
-                                <VerticalStackLayout>
-                                    <Image HeightRequest="80" Source="{Binding ImageUrl}"/>
-                                    <Label Text="{Binding Name}" />
-                                </VerticalStackLayout>
+                            <Frame HeightRequest="150" WidthRequest="200" CornerRadius="0" BorderColor="Gray"
+                                   m:H.Padding="0,0,0,0">
+                                <StackLayout m:H.Orientation="Horizontal" m:H.Spacing="10">
+                                    <Image HeightRequest="80" Source="{Binding ImageUrl}"
+                                        m:H.HeightRequest="150"  m:H.WidthRequest="100"  />
+                                    <Label m:H.VerticalOptions="Center" Text="{Binding Name}" HorizontalOptions="Center" />
+                                </StackLayout>
                             </Frame>
                             <Button BackgroundColor="Transparent" Command="{Binding BindingContext.GotToShelfCommand,  Source={x:Reference HomePageInstance}}"
                                     CommandParameter="{Binding}"/>

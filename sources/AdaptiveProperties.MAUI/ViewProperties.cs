@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 namespace AdaptiveProperties.MAUI.M;
 
 
@@ -189,36 +182,36 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalOptionsProperty = BindableProperty.CreateAttached(
-      "HorizontalOptions", typeof(LayoutOptions), typeof(V), default(LayoutOptions),
+      "HorizontalOptions", typeof(LayoutOptions?), typeof(V), default(LayoutOptions?),
       propertyChanged: HorizontalOptionsChanged);
 
-    public static void SetHorizontalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetHorizontalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(HorizontalOptionsProperty, value);
 
-    public static LayoutOptions GetHorizontalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(HorizontalOptionsProperty);
+    public static LayoutOptions? GetHorizontalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(HorizontalOptionsProperty);
 
     private static void HorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value; return (true, previousValue); }, true, "V");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value.Value; return (true, previousValue); }, true, "V");
     }
  
 
     public static readonly BindableProperty VerticalOptionsProperty = BindableProperty.CreateAttached(
-      "VerticalOptions", typeof(LayoutOptions), typeof(V), default(LayoutOptions),
+      "VerticalOptions", typeof(LayoutOptions?), typeof(V), default(LayoutOptions?),
       propertyChanged: VerticalOptionsChanged);
 
-    public static void SetVerticalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetVerticalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(VerticalOptionsProperty, value);
 
-    public static LayoutOptions GetVerticalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(VerticalOptionsProperty);
+    public static LayoutOptions? GetVerticalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(VerticalOptionsProperty);
 
     private static void VerticalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value; return (true, previousValue); }, true, "V");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value.Value; return (true, previousValue); }, true, "V");
     }
  
 
@@ -257,19 +250,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness), typeof(V), default(Thickness),
+      "Margin", typeof(Thickness?), typeof(V), default(Thickness?),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness value) =>
+    public static void SetMargin(BindableObject element, Thickness? value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness GetMargin(BindableObject element) =>
-      (Thickness)element.GetValue(MarginProperty);
+    public static Thickness? GetMargin(BindableObject element) =>
+      (Thickness?)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value; return (true, previousValue); }, true, "V");
+      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "V");
     }
  
 
@@ -308,53 +301,53 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "HorizontalTextAlignment", typeof(TextAlignment), typeof(V), default(TextAlignment),
+      "HorizontalTextAlignment", typeof(TextAlignment?), typeof(V), default(TextAlignment?),
       propertyChanged: HorizontalTextAlignmentChanged);
 
-    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(HorizontalTextAlignmentProperty, value);
 
-    public static TextAlignment GetHorizontalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(HorizontalTextAlignmentProperty);
+    public static TextAlignment? GetHorizontalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(HorizontalTextAlignmentProperty);
 
     private static void HorizontalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value; return (true, previousValue); }, true, "V");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value.Value; return (true, previousValue); }, true, "V");
     }
  
 
     public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "VerticalTextAlignment", typeof(TextAlignment), typeof(V), default(TextAlignment),
+      "VerticalTextAlignment", typeof(TextAlignment?), typeof(V), default(TextAlignment?),
       propertyChanged: VerticalTextAlignmentChanged);
 
-    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(VerticalTextAlignmentProperty, value);
 
-    public static TextAlignment GetVerticalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(VerticalTextAlignmentProperty);
+    public static TextAlignment? GetVerticalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(VerticalTextAlignmentProperty);
 
     private static void VerticalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value; return (true, previousValue); }, true, "V");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value.Value; return (true, previousValue); }, true, "V");
     }
  
 
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness), typeof(V), default(Thickness),
+      "Padding", typeof(Thickness?), typeof(V), default(Thickness?),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness value) =>
+    public static void SetPadding(BindableObject element, Thickness? value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness GetPadding(BindableObject element) =>
-      (Thickness)element.GetValue(PaddingProperty);
+    public static Thickness? GetPadding(BindableObject element) =>
+      (Thickness?)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value; return (true, previousValue); }, true, "V");
+      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "V");
     }
  
 
@@ -376,19 +369,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty OrientationProperty = BindableProperty.CreateAttached(
-      "Orientation", typeof(StackOrientation), typeof(V), default(StackOrientation),
+      "Orientation", typeof(StackOrientation?), typeof(V), default(StackOrientation?),
       propertyChanged: OrientationChanged);
 
-    public static void SetOrientation(BindableObject element, StackOrientation value) =>
+    public static void SetOrientation(BindableObject element, StackOrientation? value) =>
       element.SetValue(OrientationProperty, value);
 
-    public static StackOrientation GetOrientation(BindableObject element) =>
-      (StackOrientation)element.GetValue(OrientationProperty);
+    public static StackOrientation? GetOrientation(BindableObject element) =>
+      (StackOrientation?)element.GetValue(OrientationProperty);
 
     private static void OrientationChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<StackLayout, StackOrientation>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Orientation; view.Orientation =value; return (true, previousValue); }, true, "V");
+      PropertyDefinition<StackLayout, StackOrientation?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Orientation; view.Orientation =value.Value; return (true, previousValue); }, true, "V");
     }
  
 
@@ -642,36 +635,36 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalOptionsProperty = BindableProperty.CreateAttached(
-      "HorizontalOptions", typeof(LayoutOptions), typeof(H), default(LayoutOptions),
+      "HorizontalOptions", typeof(LayoutOptions?), typeof(H), default(LayoutOptions?),
       propertyChanged: HorizontalOptionsChanged);
 
-    public static void SetHorizontalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetHorizontalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(HorizontalOptionsProperty, value);
 
-    public static LayoutOptions GetHorizontalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(HorizontalOptionsProperty);
+    public static LayoutOptions? GetHorizontalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(HorizontalOptionsProperty);
 
     private static void HorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value; return (true, previousValue); }, true, "H");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value.Value; return (true, previousValue); }, true, "H");
     }
  
 
     public static readonly BindableProperty VerticalOptionsProperty = BindableProperty.CreateAttached(
-      "VerticalOptions", typeof(LayoutOptions), typeof(H), default(LayoutOptions),
+      "VerticalOptions", typeof(LayoutOptions?), typeof(H), default(LayoutOptions?),
       propertyChanged: VerticalOptionsChanged);
 
-    public static void SetVerticalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetVerticalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(VerticalOptionsProperty, value);
 
-    public static LayoutOptions GetVerticalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(VerticalOptionsProperty);
+    public static LayoutOptions? GetVerticalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(VerticalOptionsProperty);
 
     private static void VerticalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value; return (true, previousValue); }, true, "H");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value.Value; return (true, previousValue); }, true, "H");
     }
  
 
@@ -710,19 +703,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness), typeof(H), default(Thickness),
+      "Margin", typeof(Thickness?), typeof(H), default(Thickness?),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness value) =>
+    public static void SetMargin(BindableObject element, Thickness? value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness GetMargin(BindableObject element) =>
-      (Thickness)element.GetValue(MarginProperty);
+    public static Thickness? GetMargin(BindableObject element) =>
+      (Thickness?)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value; return (true, previousValue); }, true, "H");
+      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "H");
     }
  
 
@@ -761,53 +754,53 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "HorizontalTextAlignment", typeof(TextAlignment), typeof(H), default(TextAlignment),
+      "HorizontalTextAlignment", typeof(TextAlignment?), typeof(H), default(TextAlignment?),
       propertyChanged: HorizontalTextAlignmentChanged);
 
-    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(HorizontalTextAlignmentProperty, value);
 
-    public static TextAlignment GetHorizontalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(HorizontalTextAlignmentProperty);
+    public static TextAlignment? GetHorizontalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(HorizontalTextAlignmentProperty);
 
     private static void HorizontalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value; return (true, previousValue); }, true, "H");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value.Value; return (true, previousValue); }, true, "H");
     }
  
 
     public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "VerticalTextAlignment", typeof(TextAlignment), typeof(H), default(TextAlignment),
+      "VerticalTextAlignment", typeof(TextAlignment?), typeof(H), default(TextAlignment?),
       propertyChanged: VerticalTextAlignmentChanged);
 
-    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(VerticalTextAlignmentProperty, value);
 
-    public static TextAlignment GetVerticalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(VerticalTextAlignmentProperty);
+    public static TextAlignment? GetVerticalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(VerticalTextAlignmentProperty);
 
     private static void VerticalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value; return (true, previousValue); }, true, "H");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value.Value; return (true, previousValue); }, true, "H");
     }
  
 
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness), typeof(H), default(Thickness),
+      "Padding", typeof(Thickness?), typeof(H), default(Thickness?),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness value) =>
+    public static void SetPadding(BindableObject element, Thickness? value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness GetPadding(BindableObject element) =>
-      (Thickness)element.GetValue(PaddingProperty);
+    public static Thickness? GetPadding(BindableObject element) =>
+      (Thickness?)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value; return (true, previousValue); }, true, "H");
+      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "H");
     }
  
 
@@ -829,19 +822,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty OrientationProperty = BindableProperty.CreateAttached(
-      "Orientation", typeof(StackOrientation), typeof(H), default(StackOrientation),
+      "Orientation", typeof(StackOrientation?), typeof(H), default(StackOrientation?),
       propertyChanged: OrientationChanged);
 
-    public static void SetOrientation(BindableObject element, StackOrientation value) =>
+    public static void SetOrientation(BindableObject element, StackOrientation? value) =>
       element.SetValue(OrientationProperty, value);
 
-    public static StackOrientation GetOrientation(BindableObject element) =>
-      (StackOrientation)element.GetValue(OrientationProperty);
+    public static StackOrientation? GetOrientation(BindableObject element) =>
+      (StackOrientation?)element.GetValue(OrientationProperty);
 
     private static void OrientationChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<StackLayout, StackOrientation>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Orientation; view.Orientation =value; return (true, previousValue); }, true, "H");
+      PropertyDefinition<StackLayout, StackOrientation?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Orientation; view.Orientation =value.Value; return (true, previousValue); }, true, "H");
     }
  
 
@@ -1095,36 +1088,36 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalOptionsProperty = BindableProperty.CreateAttached(
-      "HorizontalOptions", typeof(LayoutOptions), typeof(PV), default(LayoutOptions),
+      "HorizontalOptions", typeof(LayoutOptions?), typeof(PV), default(LayoutOptions?),
       propertyChanged: HorizontalOptionsChanged);
 
-    public static void SetHorizontalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetHorizontalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(HorizontalOptionsProperty, value);
 
-    public static LayoutOptions GetHorizontalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(HorizontalOptionsProperty);
+    public static LayoutOptions? GetHorizontalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(HorizontalOptionsProperty);
 
     private static void HorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value; return (true, previousValue); }, true, "PV");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value.Value; return (true, previousValue); }, true, "PV");
     }
  
 
     public static readonly BindableProperty VerticalOptionsProperty = BindableProperty.CreateAttached(
-      "VerticalOptions", typeof(LayoutOptions), typeof(PV), default(LayoutOptions),
+      "VerticalOptions", typeof(LayoutOptions?), typeof(PV), default(LayoutOptions?),
       propertyChanged: VerticalOptionsChanged);
 
-    public static void SetVerticalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetVerticalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(VerticalOptionsProperty, value);
 
-    public static LayoutOptions GetVerticalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(VerticalOptionsProperty);
+    public static LayoutOptions? GetVerticalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(VerticalOptionsProperty);
 
     private static void VerticalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value; return (true, previousValue); }, true, "PV");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value.Value; return (true, previousValue); }, true, "PV");
     }
  
 
@@ -1163,19 +1156,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness), typeof(PV), default(Thickness),
+      "Margin", typeof(Thickness?), typeof(PV), default(Thickness?),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness value) =>
+    public static void SetMargin(BindableObject element, Thickness? value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness GetMargin(BindableObject element) =>
-      (Thickness)element.GetValue(MarginProperty);
+    public static Thickness? GetMargin(BindableObject element) =>
+      (Thickness?)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value; return (true, previousValue); }, true, "PV");
+      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "PV");
     }
  
 
@@ -1214,53 +1207,53 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "HorizontalTextAlignment", typeof(TextAlignment), typeof(PV), default(TextAlignment),
+      "HorizontalTextAlignment", typeof(TextAlignment?), typeof(PV), default(TextAlignment?),
       propertyChanged: HorizontalTextAlignmentChanged);
 
-    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(HorizontalTextAlignmentProperty, value);
 
-    public static TextAlignment GetHorizontalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(HorizontalTextAlignmentProperty);
+    public static TextAlignment? GetHorizontalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(HorizontalTextAlignmentProperty);
 
     private static void HorizontalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value; return (true, previousValue); }, true, "PV");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value.Value; return (true, previousValue); }, true, "PV");
     }
  
 
     public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "VerticalTextAlignment", typeof(TextAlignment), typeof(PV), default(TextAlignment),
+      "VerticalTextAlignment", typeof(TextAlignment?), typeof(PV), default(TextAlignment?),
       propertyChanged: VerticalTextAlignmentChanged);
 
-    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(VerticalTextAlignmentProperty, value);
 
-    public static TextAlignment GetVerticalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(VerticalTextAlignmentProperty);
+    public static TextAlignment? GetVerticalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(VerticalTextAlignmentProperty);
 
     private static void VerticalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value; return (true, previousValue); }, true, "PV");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value.Value; return (true, previousValue); }, true, "PV");
     }
  
 
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness), typeof(PV), default(Thickness),
+      "Padding", typeof(Thickness?), typeof(PV), default(Thickness?),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness value) =>
+    public static void SetPadding(BindableObject element, Thickness? value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness GetPadding(BindableObject element) =>
-      (Thickness)element.GetValue(PaddingProperty);
+    public static Thickness? GetPadding(BindableObject element) =>
+      (Thickness?)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value; return (true, previousValue); }, true, "PV");
+      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "PV");
     }
  
 
@@ -1282,19 +1275,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty OrientationProperty = BindableProperty.CreateAttached(
-      "Orientation", typeof(StackOrientation), typeof(PV), default(StackOrientation),
+      "Orientation", typeof(StackOrientation?), typeof(PV), default(StackOrientation?),
       propertyChanged: OrientationChanged);
 
-    public static void SetOrientation(BindableObject element, StackOrientation value) =>
+    public static void SetOrientation(BindableObject element, StackOrientation? value) =>
       element.SetValue(OrientationProperty, value);
 
-    public static StackOrientation GetOrientation(BindableObject element) =>
-      (StackOrientation)element.GetValue(OrientationProperty);
+    public static StackOrientation? GetOrientation(BindableObject element) =>
+      (StackOrientation?)element.GetValue(OrientationProperty);
 
     private static void OrientationChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<StackLayout, StackOrientation>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Orientation; view.Orientation =value; return (true, previousValue); }, true, "PV");
+      PropertyDefinition<StackLayout, StackOrientation?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Orientation; view.Orientation =value.Value; return (true, previousValue); }, true, "PV");
     }
  
 
@@ -1548,36 +1541,36 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalOptionsProperty = BindableProperty.CreateAttached(
-      "HorizontalOptions", typeof(LayoutOptions), typeof(PH), default(LayoutOptions),
+      "HorizontalOptions", typeof(LayoutOptions?), typeof(PH), default(LayoutOptions?),
       propertyChanged: HorizontalOptionsChanged);
 
-    public static void SetHorizontalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetHorizontalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(HorizontalOptionsProperty, value);
 
-    public static LayoutOptions GetHorizontalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(HorizontalOptionsProperty);
+    public static LayoutOptions? GetHorizontalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(HorizontalOptionsProperty);
 
     private static void HorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value; return (true, previousValue); }, true, "PH");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value.Value; return (true, previousValue); }, true, "PH");
     }
  
 
     public static readonly BindableProperty VerticalOptionsProperty = BindableProperty.CreateAttached(
-      "VerticalOptions", typeof(LayoutOptions), typeof(PH), default(LayoutOptions),
+      "VerticalOptions", typeof(LayoutOptions?), typeof(PH), default(LayoutOptions?),
       propertyChanged: VerticalOptionsChanged);
 
-    public static void SetVerticalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetVerticalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(VerticalOptionsProperty, value);
 
-    public static LayoutOptions GetVerticalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(VerticalOptionsProperty);
+    public static LayoutOptions? GetVerticalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(VerticalOptionsProperty);
 
     private static void VerticalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value; return (true, previousValue); }, true, "PH");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value.Value; return (true, previousValue); }, true, "PH");
     }
  
 
@@ -1616,19 +1609,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness), typeof(PH), default(Thickness),
+      "Margin", typeof(Thickness?), typeof(PH), default(Thickness?),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness value) =>
+    public static void SetMargin(BindableObject element, Thickness? value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness GetMargin(BindableObject element) =>
-      (Thickness)element.GetValue(MarginProperty);
+    public static Thickness? GetMargin(BindableObject element) =>
+      (Thickness?)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value; return (true, previousValue); }, true, "PH");
+      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "PH");
     }
  
 
@@ -1667,53 +1660,53 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "HorizontalTextAlignment", typeof(TextAlignment), typeof(PH), default(TextAlignment),
+      "HorizontalTextAlignment", typeof(TextAlignment?), typeof(PH), default(TextAlignment?),
       propertyChanged: HorizontalTextAlignmentChanged);
 
-    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(HorizontalTextAlignmentProperty, value);
 
-    public static TextAlignment GetHorizontalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(HorizontalTextAlignmentProperty);
+    public static TextAlignment? GetHorizontalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(HorizontalTextAlignmentProperty);
 
     private static void HorizontalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value; return (true, previousValue); }, true, "PH");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value.Value; return (true, previousValue); }, true, "PH");
     }
  
 
     public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "VerticalTextAlignment", typeof(TextAlignment), typeof(PH), default(TextAlignment),
+      "VerticalTextAlignment", typeof(TextAlignment?), typeof(PH), default(TextAlignment?),
       propertyChanged: VerticalTextAlignmentChanged);
 
-    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(VerticalTextAlignmentProperty, value);
 
-    public static TextAlignment GetVerticalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(VerticalTextAlignmentProperty);
+    public static TextAlignment? GetVerticalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(VerticalTextAlignmentProperty);
 
     private static void VerticalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value; return (true, previousValue); }, true, "PH");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value.Value; return (true, previousValue); }, true, "PH");
     }
  
 
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness), typeof(PH), default(Thickness),
+      "Padding", typeof(Thickness?), typeof(PH), default(Thickness?),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness value) =>
+    public static void SetPadding(BindableObject element, Thickness? value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness GetPadding(BindableObject element) =>
-      (Thickness)element.GetValue(PaddingProperty);
+    public static Thickness? GetPadding(BindableObject element) =>
+      (Thickness?)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value; return (true, previousValue); }, true, "PH");
+      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "PH");
     }
  
 
@@ -1735,19 +1728,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty OrientationProperty = BindableProperty.CreateAttached(
-      "Orientation", typeof(StackOrientation), typeof(PH), default(StackOrientation),
+      "Orientation", typeof(StackOrientation?), typeof(PH), default(StackOrientation?),
       propertyChanged: OrientationChanged);
 
-    public static void SetOrientation(BindableObject element, StackOrientation value) =>
+    public static void SetOrientation(BindableObject element, StackOrientation? value) =>
       element.SetValue(OrientationProperty, value);
 
-    public static StackOrientation GetOrientation(BindableObject element) =>
-      (StackOrientation)element.GetValue(OrientationProperty);
+    public static StackOrientation? GetOrientation(BindableObject element) =>
+      (StackOrientation?)element.GetValue(OrientationProperty);
 
     private static void OrientationChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<StackLayout, StackOrientation>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Orientation; view.Orientation =value; return (true, previousValue); }, true, "PH");
+      PropertyDefinition<StackLayout, StackOrientation?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Orientation; view.Orientation =value.Value; return (true, previousValue); }, true, "PH");
     }
  
 
@@ -2001,36 +1994,36 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalOptionsProperty = BindableProperty.CreateAttached(
-      "HorizontalOptions", typeof(LayoutOptions), typeof(TV), default(LayoutOptions),
+      "HorizontalOptions", typeof(LayoutOptions?), typeof(TV), default(LayoutOptions?),
       propertyChanged: HorizontalOptionsChanged);
 
-    public static void SetHorizontalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetHorizontalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(HorizontalOptionsProperty, value);
 
-    public static LayoutOptions GetHorizontalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(HorizontalOptionsProperty);
+    public static LayoutOptions? GetHorizontalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(HorizontalOptionsProperty);
 
     private static void HorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value; return (true, previousValue); }, true, "TV");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value.Value; return (true, previousValue); }, true, "TV");
     }
  
 
     public static readonly BindableProperty VerticalOptionsProperty = BindableProperty.CreateAttached(
-      "VerticalOptions", typeof(LayoutOptions), typeof(TV), default(LayoutOptions),
+      "VerticalOptions", typeof(LayoutOptions?), typeof(TV), default(LayoutOptions?),
       propertyChanged: VerticalOptionsChanged);
 
-    public static void SetVerticalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetVerticalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(VerticalOptionsProperty, value);
 
-    public static LayoutOptions GetVerticalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(VerticalOptionsProperty);
+    public static LayoutOptions? GetVerticalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(VerticalOptionsProperty);
 
     private static void VerticalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value; return (true, previousValue); }, true, "TV");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value.Value; return (true, previousValue); }, true, "TV");
     }
  
 
@@ -2069,19 +2062,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness), typeof(TV), default(Thickness),
+      "Margin", typeof(Thickness?), typeof(TV), default(Thickness?),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness value) =>
+    public static void SetMargin(BindableObject element, Thickness? value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness GetMargin(BindableObject element) =>
-      (Thickness)element.GetValue(MarginProperty);
+    public static Thickness? GetMargin(BindableObject element) =>
+      (Thickness?)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value; return (true, previousValue); }, true, "TV");
+      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "TV");
     }
  
 
@@ -2120,53 +2113,53 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "HorizontalTextAlignment", typeof(TextAlignment), typeof(TV), default(TextAlignment),
+      "HorizontalTextAlignment", typeof(TextAlignment?), typeof(TV), default(TextAlignment?),
       propertyChanged: HorizontalTextAlignmentChanged);
 
-    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(HorizontalTextAlignmentProperty, value);
 
-    public static TextAlignment GetHorizontalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(HorizontalTextAlignmentProperty);
+    public static TextAlignment? GetHorizontalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(HorizontalTextAlignmentProperty);
 
     private static void HorizontalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value; return (true, previousValue); }, true, "TV");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value.Value; return (true, previousValue); }, true, "TV");
     }
  
 
     public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "VerticalTextAlignment", typeof(TextAlignment), typeof(TV), default(TextAlignment),
+      "VerticalTextAlignment", typeof(TextAlignment?), typeof(TV), default(TextAlignment?),
       propertyChanged: VerticalTextAlignmentChanged);
 
-    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(VerticalTextAlignmentProperty, value);
 
-    public static TextAlignment GetVerticalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(VerticalTextAlignmentProperty);
+    public static TextAlignment? GetVerticalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(VerticalTextAlignmentProperty);
 
     private static void VerticalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value; return (true, previousValue); }, true, "TV");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value.Value; return (true, previousValue); }, true, "TV");
     }
  
 
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness), typeof(TV), default(Thickness),
+      "Padding", typeof(Thickness?), typeof(TV), default(Thickness?),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness value) =>
+    public static void SetPadding(BindableObject element, Thickness? value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness GetPadding(BindableObject element) =>
-      (Thickness)element.GetValue(PaddingProperty);
+    public static Thickness? GetPadding(BindableObject element) =>
+      (Thickness?)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value; return (true, previousValue); }, true, "TV");
+      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "TV");
     }
  
 
@@ -2188,19 +2181,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty OrientationProperty = BindableProperty.CreateAttached(
-      "Orientation", typeof(StackOrientation), typeof(TV), default(StackOrientation),
+      "Orientation", typeof(StackOrientation?), typeof(TV), default(StackOrientation?),
       propertyChanged: OrientationChanged);
 
-    public static void SetOrientation(BindableObject element, StackOrientation value) =>
+    public static void SetOrientation(BindableObject element, StackOrientation? value) =>
       element.SetValue(OrientationProperty, value);
 
-    public static StackOrientation GetOrientation(BindableObject element) =>
-      (StackOrientation)element.GetValue(OrientationProperty);
+    public static StackOrientation? GetOrientation(BindableObject element) =>
+      (StackOrientation?)element.GetValue(OrientationProperty);
 
     private static void OrientationChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<StackLayout, StackOrientation>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Orientation; view.Orientation =value; return (true, previousValue); }, true, "TV");
+      PropertyDefinition<StackLayout, StackOrientation?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Orientation; view.Orientation =value.Value; return (true, previousValue); }, true, "TV");
     }
  
 
@@ -2454,36 +2447,36 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalOptionsProperty = BindableProperty.CreateAttached(
-      "HorizontalOptions", typeof(LayoutOptions), typeof(TH), default(LayoutOptions),
+      "HorizontalOptions", typeof(LayoutOptions?), typeof(TH), default(LayoutOptions?),
       propertyChanged: HorizontalOptionsChanged);
 
-    public static void SetHorizontalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetHorizontalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(HorizontalOptionsProperty, value);
 
-    public static LayoutOptions GetHorizontalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(HorizontalOptionsProperty);
+    public static LayoutOptions? GetHorizontalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(HorizontalOptionsProperty);
 
     private static void HorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value; return (true, previousValue); }, true, "TH");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value.Value; return (true, previousValue); }, true, "TH");
     }
  
 
     public static readonly BindableProperty VerticalOptionsProperty = BindableProperty.CreateAttached(
-      "VerticalOptions", typeof(LayoutOptions), typeof(TH), default(LayoutOptions),
+      "VerticalOptions", typeof(LayoutOptions?), typeof(TH), default(LayoutOptions?),
       propertyChanged: VerticalOptionsChanged);
 
-    public static void SetVerticalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetVerticalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(VerticalOptionsProperty, value);
 
-    public static LayoutOptions GetVerticalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(VerticalOptionsProperty);
+    public static LayoutOptions? GetVerticalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(VerticalOptionsProperty);
 
     private static void VerticalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value; return (true, previousValue); }, true, "TH");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value.Value; return (true, previousValue); }, true, "TH");
     }
  
 
@@ -2522,19 +2515,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness), typeof(TH), default(Thickness),
+      "Margin", typeof(Thickness?), typeof(TH), default(Thickness?),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness value) =>
+    public static void SetMargin(BindableObject element, Thickness? value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness GetMargin(BindableObject element) =>
-      (Thickness)element.GetValue(MarginProperty);
+    public static Thickness? GetMargin(BindableObject element) =>
+      (Thickness?)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value; return (true, previousValue); }, true, "TH");
+      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "TH");
     }
  
 
@@ -2573,53 +2566,53 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "HorizontalTextAlignment", typeof(TextAlignment), typeof(TH), default(TextAlignment),
+      "HorizontalTextAlignment", typeof(TextAlignment?), typeof(TH), default(TextAlignment?),
       propertyChanged: HorizontalTextAlignmentChanged);
 
-    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(HorizontalTextAlignmentProperty, value);
 
-    public static TextAlignment GetHorizontalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(HorizontalTextAlignmentProperty);
+    public static TextAlignment? GetHorizontalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(HorizontalTextAlignmentProperty);
 
     private static void HorizontalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value; return (true, previousValue); }, true, "TH");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value.Value; return (true, previousValue); }, true, "TH");
     }
  
 
     public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "VerticalTextAlignment", typeof(TextAlignment), typeof(TH), default(TextAlignment),
+      "VerticalTextAlignment", typeof(TextAlignment?), typeof(TH), default(TextAlignment?),
       propertyChanged: VerticalTextAlignmentChanged);
 
-    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(VerticalTextAlignmentProperty, value);
 
-    public static TextAlignment GetVerticalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(VerticalTextAlignmentProperty);
+    public static TextAlignment? GetVerticalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(VerticalTextAlignmentProperty);
 
     private static void VerticalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value; return (true, previousValue); }, true, "TH");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value.Value; return (true, previousValue); }, true, "TH");
     }
  
 
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness), typeof(TH), default(Thickness),
+      "Padding", typeof(Thickness?), typeof(TH), default(Thickness?),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness value) =>
+    public static void SetPadding(BindableObject element, Thickness? value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness GetPadding(BindableObject element) =>
-      (Thickness)element.GetValue(PaddingProperty);
+    public static Thickness? GetPadding(BindableObject element) =>
+      (Thickness?)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value; return (true, previousValue); }, true, "TH");
+      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "TH");
     }
  
 
@@ -2641,19 +2634,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty OrientationProperty = BindableProperty.CreateAttached(
-      "Orientation", typeof(StackOrientation), typeof(TH), default(StackOrientation),
+      "Orientation", typeof(StackOrientation?), typeof(TH), default(StackOrientation?),
       propertyChanged: OrientationChanged);
 
-    public static void SetOrientation(BindableObject element, StackOrientation value) =>
+    public static void SetOrientation(BindableObject element, StackOrientation? value) =>
       element.SetValue(OrientationProperty, value);
 
-    public static StackOrientation GetOrientation(BindableObject element) =>
-      (StackOrientation)element.GetValue(OrientationProperty);
+    public static StackOrientation? GetOrientation(BindableObject element) =>
+      (StackOrientation?)element.GetValue(OrientationProperty);
 
     private static void OrientationChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<StackLayout, StackOrientation>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Orientation; view.Orientation =value; return (true, previousValue); }, true, "TH");
+      PropertyDefinition<StackLayout, StackOrientation?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Orientation; view.Orientation =value.Value; return (true, previousValue); }, true, "TH");
     }
  
 
@@ -2919,36 +2912,36 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalOptionsProperty = BindableProperty.CreateAttached(
-      "HorizontalOptions", typeof(LayoutOptions), typeof(X), default(LayoutOptions),
+      "HorizontalOptions", typeof(LayoutOptions?), typeof(X), default(LayoutOptions?),
       propertyChanged: HorizontalOptionsChanged);
 
-    public static void SetHorizontalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetHorizontalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(HorizontalOptionsProperty, value);
 
-    public static LayoutOptions GetHorizontalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(HorizontalOptionsProperty);
+    public static LayoutOptions? GetHorizontalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(HorizontalOptionsProperty);
 
     private static void HorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value; return (true, previousValue); }, false, "X");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value.Value; return (true, previousValue); }, false, "X");
     }
  
 
     public static readonly BindableProperty VerticalOptionsProperty = BindableProperty.CreateAttached(
-      "VerticalOptions", typeof(LayoutOptions), typeof(X), default(LayoutOptions),
+      "VerticalOptions", typeof(LayoutOptions?), typeof(X), default(LayoutOptions?),
       propertyChanged: VerticalOptionsChanged);
 
-    public static void SetVerticalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetVerticalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(VerticalOptionsProperty, value);
 
-    public static LayoutOptions GetVerticalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(VerticalOptionsProperty);
+    public static LayoutOptions? GetVerticalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(VerticalOptionsProperty);
 
     private static void VerticalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value; return (true, previousValue); }, false, "X");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value.Value; return (true, previousValue); }, false, "X");
     }
  
 
@@ -2987,19 +2980,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness), typeof(X), default(Thickness),
+      "Margin", typeof(Thickness?), typeof(X), default(Thickness?),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness value) =>
+    public static void SetMargin(BindableObject element, Thickness? value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness GetMargin(BindableObject element) =>
-      (Thickness)element.GetValue(MarginProperty);
+    public static Thickness? GetMargin(BindableObject element) =>
+      (Thickness?)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value; return (true, previousValue); }, false, "X");
+      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, false, "X");
     }
  
 
@@ -3038,53 +3031,53 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "HorizontalTextAlignment", typeof(TextAlignment), typeof(X), default(TextAlignment),
+      "HorizontalTextAlignment", typeof(TextAlignment?), typeof(X), default(TextAlignment?),
       propertyChanged: HorizontalTextAlignmentChanged);
 
-    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(HorizontalTextAlignmentProperty, value);
 
-    public static TextAlignment GetHorizontalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(HorizontalTextAlignmentProperty);
+    public static TextAlignment? GetHorizontalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(HorizontalTextAlignmentProperty);
 
     private static void HorizontalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value; return (true, previousValue); }, false, "X");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value.Value; return (true, previousValue); }, false, "X");
     }
  
 
     public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "VerticalTextAlignment", typeof(TextAlignment), typeof(X), default(TextAlignment),
+      "VerticalTextAlignment", typeof(TextAlignment?), typeof(X), default(TextAlignment?),
       propertyChanged: VerticalTextAlignmentChanged);
 
-    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(VerticalTextAlignmentProperty, value);
 
-    public static TextAlignment GetVerticalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(VerticalTextAlignmentProperty);
+    public static TextAlignment? GetVerticalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(VerticalTextAlignmentProperty);
 
     private static void VerticalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value; return (true, previousValue); }, false, "X");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value.Value; return (true, previousValue); }, false, "X");
     }
  
 
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness), typeof(X), default(Thickness),
+      "Padding", typeof(Thickness?), typeof(X), default(Thickness?),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness value) =>
+    public static void SetPadding(BindableObject element, Thickness? value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness GetPadding(BindableObject element) =>
-      (Thickness)element.GetValue(PaddingProperty);
+    public static Thickness? GetPadding(BindableObject element) =>
+      (Thickness?)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value; return (true, previousValue); }, false, "X");
+      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, false, "X");
     }
  
 
@@ -3106,19 +3099,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty OrientationProperty = BindableProperty.CreateAttached(
-      "Orientation", typeof(StackOrientation), typeof(X), default(StackOrientation),
+      "Orientation", typeof(StackOrientation?), typeof(X), default(StackOrientation?),
       propertyChanged: OrientationChanged);
 
-    public static void SetOrientation(BindableObject element, StackOrientation value) =>
+    public static void SetOrientation(BindableObject element, StackOrientation? value) =>
       element.SetValue(OrientationProperty, value);
 
-    public static StackOrientation GetOrientation(BindableObject element) =>
-      (StackOrientation)element.GetValue(OrientationProperty);
+    public static StackOrientation? GetOrientation(BindableObject element) =>
+      (StackOrientation?)element.GetValue(OrientationProperty);
 
     private static void OrientationChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<StackLayout, StackOrientation>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Orientation; view.Orientation =value; return (true, previousValue); }, false, "X");
+      PropertyDefinition<StackLayout, StackOrientation?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Orientation; view.Orientation =value.Value; return (true, previousValue); }, false, "X");
     }
  
 
@@ -3384,36 +3377,36 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalOptionsProperty = BindableProperty.CreateAttached(
-      "HorizontalOptions", typeof(LayoutOptions), typeof(X2), default(LayoutOptions),
+      "HorizontalOptions", typeof(LayoutOptions?), typeof(X2), default(LayoutOptions?),
       propertyChanged: HorizontalOptionsChanged);
 
-    public static void SetHorizontalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetHorizontalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(HorizontalOptionsProperty, value);
 
-    public static LayoutOptions GetHorizontalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(HorizontalOptionsProperty);
+    public static LayoutOptions? GetHorizontalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(HorizontalOptionsProperty);
 
     private static void HorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value; return (true, previousValue); }, false, "X2");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value.Value; return (true, previousValue); }, false, "X2");
     }
  
 
     public static readonly BindableProperty VerticalOptionsProperty = BindableProperty.CreateAttached(
-      "VerticalOptions", typeof(LayoutOptions), typeof(X2), default(LayoutOptions),
+      "VerticalOptions", typeof(LayoutOptions?), typeof(X2), default(LayoutOptions?),
       propertyChanged: VerticalOptionsChanged);
 
-    public static void SetVerticalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetVerticalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(VerticalOptionsProperty, value);
 
-    public static LayoutOptions GetVerticalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(VerticalOptionsProperty);
+    public static LayoutOptions? GetVerticalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(VerticalOptionsProperty);
 
     private static void VerticalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value; return (true, previousValue); }, false, "X2");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value.Value; return (true, previousValue); }, false, "X2");
     }
  
 
@@ -3452,19 +3445,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness), typeof(X2), default(Thickness),
+      "Margin", typeof(Thickness?), typeof(X2), default(Thickness?),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness value) =>
+    public static void SetMargin(BindableObject element, Thickness? value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness GetMargin(BindableObject element) =>
-      (Thickness)element.GetValue(MarginProperty);
+    public static Thickness? GetMargin(BindableObject element) =>
+      (Thickness?)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value; return (true, previousValue); }, false, "X2");
+      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, false, "X2");
     }
  
 
@@ -3503,53 +3496,53 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "HorizontalTextAlignment", typeof(TextAlignment), typeof(X2), default(TextAlignment),
+      "HorizontalTextAlignment", typeof(TextAlignment?), typeof(X2), default(TextAlignment?),
       propertyChanged: HorizontalTextAlignmentChanged);
 
-    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(HorizontalTextAlignmentProperty, value);
 
-    public static TextAlignment GetHorizontalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(HorizontalTextAlignmentProperty);
+    public static TextAlignment? GetHorizontalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(HorizontalTextAlignmentProperty);
 
     private static void HorizontalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value; return (true, previousValue); }, false, "X2");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value.Value; return (true, previousValue); }, false, "X2");
     }
  
 
     public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "VerticalTextAlignment", typeof(TextAlignment), typeof(X2), default(TextAlignment),
+      "VerticalTextAlignment", typeof(TextAlignment?), typeof(X2), default(TextAlignment?),
       propertyChanged: VerticalTextAlignmentChanged);
 
-    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(VerticalTextAlignmentProperty, value);
 
-    public static TextAlignment GetVerticalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(VerticalTextAlignmentProperty);
+    public static TextAlignment? GetVerticalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(VerticalTextAlignmentProperty);
 
     private static void VerticalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value; return (true, previousValue); }, false, "X2");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value.Value; return (true, previousValue); }, false, "X2");
     }
  
 
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness), typeof(X2), default(Thickness),
+      "Padding", typeof(Thickness?), typeof(X2), default(Thickness?),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness value) =>
+    public static void SetPadding(BindableObject element, Thickness? value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness GetPadding(BindableObject element) =>
-      (Thickness)element.GetValue(PaddingProperty);
+    public static Thickness? GetPadding(BindableObject element) =>
+      (Thickness?)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value; return (true, previousValue); }, false, "X2");
+      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, false, "X2");
     }
  
 
@@ -3571,19 +3564,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty OrientationProperty = BindableProperty.CreateAttached(
-      "Orientation", typeof(StackOrientation), typeof(X2), default(StackOrientation),
+      "Orientation", typeof(StackOrientation?), typeof(X2), default(StackOrientation?),
       propertyChanged: OrientationChanged);
 
-    public static void SetOrientation(BindableObject element, StackOrientation value) =>
+    public static void SetOrientation(BindableObject element, StackOrientation? value) =>
       element.SetValue(OrientationProperty, value);
 
-    public static StackOrientation GetOrientation(BindableObject element) =>
-      (StackOrientation)element.GetValue(OrientationProperty);
+    public static StackOrientation? GetOrientation(BindableObject element) =>
+      (StackOrientation?)element.GetValue(OrientationProperty);
 
     private static void OrientationChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<StackLayout, StackOrientation>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Orientation; view.Orientation =value; return (true, previousValue); }, false, "X2");
+      PropertyDefinition<StackLayout, StackOrientation?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Orientation; view.Orientation =value.Value; return (true, previousValue); }, false, "X2");
     }
  
 
@@ -3849,36 +3842,36 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalOptionsProperty = BindableProperty.CreateAttached(
-      "HorizontalOptions", typeof(LayoutOptions), typeof(X3), default(LayoutOptions),
+      "HorizontalOptions", typeof(LayoutOptions?), typeof(X3), default(LayoutOptions?),
       propertyChanged: HorizontalOptionsChanged);
 
-    public static void SetHorizontalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetHorizontalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(HorizontalOptionsProperty, value);
 
-    public static LayoutOptions GetHorizontalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(HorizontalOptionsProperty);
+    public static LayoutOptions? GetHorizontalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(HorizontalOptionsProperty);
 
     private static void HorizontalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value; return (true, previousValue); }, false, "X3");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalOptions; view.HorizontalOptions =value.Value; return (true, previousValue); }, false, "X3");
     }
  
 
     public static readonly BindableProperty VerticalOptionsProperty = BindableProperty.CreateAttached(
-      "VerticalOptions", typeof(LayoutOptions), typeof(X3), default(LayoutOptions),
+      "VerticalOptions", typeof(LayoutOptions?), typeof(X3), default(LayoutOptions?),
       propertyChanged: VerticalOptionsChanged);
 
-    public static void SetVerticalOptions(BindableObject element, LayoutOptions value) =>
+    public static void SetVerticalOptions(BindableObject element, LayoutOptions? value) =>
       element.SetValue(VerticalOptionsProperty, value);
 
-    public static LayoutOptions GetVerticalOptions(BindableObject element) =>
-      (LayoutOptions)element.GetValue(VerticalOptionsProperty);
+    public static LayoutOptions? GetVerticalOptions(BindableObject element) =>
+      (LayoutOptions?)element.GetValue(VerticalOptionsProperty);
 
     private static void VerticalOptionsChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, LayoutOptions>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value; return (true, previousValue); }, false, "X3");
+      PropertyDefinition<View, LayoutOptions?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalOptions; view.VerticalOptions =value.Value; return (true, previousValue); }, false, "X3");
     }
  
 
@@ -3917,19 +3910,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness), typeof(X3), default(Thickness),
+      "Margin", typeof(Thickness?), typeof(X3), default(Thickness?),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness value) =>
+    public static void SetMargin(BindableObject element, Thickness? value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness GetMargin(BindableObject element) =>
-      (Thickness)element.GetValue(MarginProperty);
+    public static Thickness? GetMargin(BindableObject element) =>
+      (Thickness?)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value; return (true, previousValue); }, false, "X3");
+      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, false, "X3");
     }
  
 
@@ -3968,53 +3961,53 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "HorizontalTextAlignment", typeof(TextAlignment), typeof(X3), default(TextAlignment),
+      "HorizontalTextAlignment", typeof(TextAlignment?), typeof(X3), default(TextAlignment?),
       propertyChanged: HorizontalTextAlignmentChanged);
 
-    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetHorizontalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(HorizontalTextAlignmentProperty, value);
 
-    public static TextAlignment GetHorizontalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(HorizontalTextAlignmentProperty);
+    public static TextAlignment? GetHorizontalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(HorizontalTextAlignmentProperty);
 
     private static void HorizontalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value; return (true, previousValue); }, false, "X3");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.HorizontalTextAlignment; view.HorizontalTextAlignment =value.Value; return (true, previousValue); }, false, "X3");
     }
  
 
     public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.CreateAttached(
-      "VerticalTextAlignment", typeof(TextAlignment), typeof(X3), default(TextAlignment),
+      "VerticalTextAlignment", typeof(TextAlignment?), typeof(X3), default(TextAlignment?),
       propertyChanged: VerticalTextAlignmentChanged);
 
-    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment value) =>
+    public static void SetVerticalTextAlignment(BindableObject element, TextAlignment? value) =>
       element.SetValue(VerticalTextAlignmentProperty, value);
 
-    public static TextAlignment GetVerticalTextAlignment(BindableObject element) =>
-      (TextAlignment)element.GetValue(VerticalTextAlignmentProperty);
+    public static TextAlignment? GetVerticalTextAlignment(BindableObject element) =>
+      (TextAlignment?)element.GetValue(VerticalTextAlignmentProperty);
 
     private static void VerticalTextAlignmentChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Label, TextAlignment>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value; return (true, previousValue); }, false, "X3");
+      PropertyDefinition<Label, TextAlignment?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.VerticalTextAlignment; view.VerticalTextAlignment =value.Value; return (true, previousValue); }, false, "X3");
     }
  
 
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness), typeof(X3), default(Thickness),
+      "Padding", typeof(Thickness?), typeof(X3), default(Thickness?),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness value) =>
+    public static void SetPadding(BindableObject element, Thickness? value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness GetPadding(BindableObject element) =>
-      (Thickness)element.GetValue(PaddingProperty);
+    public static Thickness? GetPadding(BindableObject element) =>
+      (Thickness?)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value; return (true, previousValue); }, false, "X3");
+      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, false, "X3");
     }
  
 
@@ -4036,19 +4029,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty OrientationProperty = BindableProperty.CreateAttached(
-      "Orientation", typeof(StackOrientation), typeof(X3), default(StackOrientation),
+      "Orientation", typeof(StackOrientation?), typeof(X3), default(StackOrientation?),
       propertyChanged: OrientationChanged);
 
-    public static void SetOrientation(BindableObject element, StackOrientation value) =>
+    public static void SetOrientation(BindableObject element, StackOrientation? value) =>
       element.SetValue(OrientationProperty, value);
 
-    public static StackOrientation GetOrientation(BindableObject element) =>
-      (StackOrientation)element.GetValue(OrientationProperty);
+    public static StackOrientation? GetOrientation(BindableObject element) =>
+      (StackOrientation?)element.GetValue(OrientationProperty);
 
     private static void OrientationChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<StackLayout, StackOrientation>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Orientation; view.Orientation =value; return (true, previousValue); }, false, "X3");
+      PropertyDefinition<StackLayout, StackOrientation?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Orientation; view.Orientation =value.Value; return (true, previousValue); }, false, "X3");
     }
  
 

@@ -22,7 +22,10 @@ internal static class PropertyDefinition
 
         if (e.PropertyName == nameof(contentPage.Height) && contentPage.Height > 0)
         {
-            Registrations[contentPage].ForEach(propertyDefinition => propertyDefinition.ApplyProperty());
+            contentPage.Dispatcher.Dispatch(() =>
+             {
+                 Registrations[contentPage].ForEach(propertyDefinition => propertyDefinition.ApplyProperty());
+             });
             return;
         }
 
@@ -41,7 +44,7 @@ internal interface IPropertyDefinition
     void ApplyProperty();
 }
 
-internal class PropertyDefinition<TView, TValue> : IPropertyDefinition
+internal class PropertyDefinition<TView, TValue> : BindableObject, IPropertyDefinition
     where TView : View
 {
     private readonly TView _view;

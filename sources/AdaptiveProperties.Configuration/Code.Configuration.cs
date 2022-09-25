@@ -55,10 +55,10 @@ internal static class Code_Configuration
         Helper.CreatePropertyConfiguration<View, double?>(
             view => view.MinimumWidthRequest
         ),
-        Helper.CreatePropertyConfiguration<View, LayoutOptions>(
+        Helper.CreatePropertyConfiguration<View, LayoutOptions?>(
             view => view.HorizontalOptions
         ),
-        Helper.CreatePropertyConfiguration<View, LayoutOptions>(
+        Helper.CreatePropertyConfiguration<View, LayoutOptions?>(
             view => view.VerticalOptions
         ),
         Helper.CreatePropertyConfiguration<View, bool?>(
@@ -67,7 +67,7 @@ internal static class Code_Configuration
         Helper.CreatePropertyConfiguration<View, double?>(
             view => view.Opacity
         ),
-        Helper.CreatePropertyConfiguration<View, Thickness>(
+        Helper.CreatePropertyConfiguration<View, Thickness?>(
             view => view.Margin
         ),
         Helper.CreatePropertyConfiguration<View, Color>(
@@ -76,19 +76,19 @@ internal static class Code_Configuration
         Helper.CreatePropertyConfiguration<Label, Color>(
             view => view.TextColor
         ),
-        Helper.CreatePropertyConfiguration<Label, TextAlignment>(
+        Helper.CreatePropertyConfiguration<Label, TextAlignment?>(
             view => view.HorizontalTextAlignment
         ),
-        Helper.CreatePropertyConfiguration<Label, TextAlignment>(
+        Helper.CreatePropertyConfiguration<Label, TextAlignment?>(
             view => view.VerticalTextAlignment
         ),
-        Helper.CreatePropertyConfiguration<Layout, Thickness>(
+        Helper.CreatePropertyConfiguration<Layout, Thickness?>(
             view => view.Padding
         ),
         Helper.CreatePropertyConfiguration<StackBase, double?>(
             view => view.Spacing
         ),
-        Helper.CreatePropertyConfiguration<StackLayout, StackOrientation>(
+        Helper.CreatePropertyConfiguration<StackLayout, StackOrientation?>(
             view => view.Orientation
         ),
         Helper.CreatePropertyConfiguration<Grid, double?>(
