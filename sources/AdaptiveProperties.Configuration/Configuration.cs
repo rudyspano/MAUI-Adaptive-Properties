@@ -70,27 +70,27 @@ public static class Configuration
         new PropertyConfiguration("Frame", "float?",
 "CornerRadius"        ),
     };
-    
+
     public static ModeConfiguration[] Modes = new[]
     {
         new ModeConfiguration(
             "V",
-"DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait",            "Phone/Tablet Vertical mode"),
+"DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180",            "Phone/Tablet Vertical mode"),
         new ModeConfiguration(
             "H",
-"DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Landscape",            "Phone/Tablet Horizontal mode"),
+"DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270",            "Phone/Tablet Horizontal mode"),
         new ModeConfiguration(
             "PV",
-"DeviceInfo.Idiom == DeviceIdiom.Phone && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait",            "Phone Vertical mode"),
+"DeviceInfo.Idiom == DeviceIdiom.Phone && (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180)",            "Phone Vertical mode"),
         new ModeConfiguration(
             "PH",
-"DeviceInfo.Idiom == DeviceIdiom.Phone && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Landscape",            "Phone Horizontal mode"),
+"DeviceInfo.Idiom == DeviceIdiom.Phone&& (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270)",            "Phone Horizontal mode"),
         new ModeConfiguration(
             "TV",
-"DeviceInfo.Idiom == DeviceIdiom.Tablet && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait",            "Tablet Vertical mode"),
+"DeviceInfo.Idiom == DeviceIdiom.Tablet &&  (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180)",            "Tablet Vertical mode"),
         new ModeConfiguration(
             "TH",
-"DeviceInfo.Idiom == DeviceIdiom.Tablet && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait",            "Tablet Horizontal mode"),
+"DeviceInfo.Idiom == DeviceIdiom.Tablet && (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270)",            "Tablet Horizontal mode"),
         new ModeConfiguration(
             "X",
             "Custom mode to set and trigger via SetModeActivationChecking and TriggerModeActivationChecking methods"

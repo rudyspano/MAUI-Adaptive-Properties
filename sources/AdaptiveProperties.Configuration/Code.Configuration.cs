@@ -104,32 +104,32 @@ internal static class Code_Configuration
             view => view.CornerRadius
         ),
     };
-    
+
     internal static ModeConfiguration[] Code_Modes = new[]
     {
         Helper.CreateModeConfiguration(
             "V",
-            DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait,
+           DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180,
             "Phone/Tablet Vertical mode"),
         Helper.CreateModeConfiguration(
             "H",
-            DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Landscape,
+            DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270,
             "Phone/Tablet Horizontal mode"),
         Helper.CreateModeConfiguration(
             "PV",
-            DeviceInfo.Idiom == DeviceIdiom.Phone && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait,
+            DeviceInfo.Idiom == DeviceIdiom.Phone && (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180),
             "Phone Vertical mode"),
         Helper.CreateModeConfiguration(
             "PH",
-            DeviceInfo.Idiom == DeviceIdiom.Phone && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Landscape,
+            DeviceInfo.Idiom == DeviceIdiom.Phone&& (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270),
             "Phone Horizontal mode"),
         Helper.CreateModeConfiguration(
             "TV",
-            DeviceInfo.Idiom == DeviceIdiom.Tablet && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait,
+            DeviceInfo.Idiom == DeviceIdiom.Tablet &&  (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180),
             "Tablet Vertical mode"),
         Helper.CreateModeConfiguration(
             "TH",
-            DeviceInfo.Idiom == DeviceIdiom.Tablet && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait,
+            DeviceInfo.Idiom == DeviceIdiom.Tablet && (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270),
             "Tablet Horizontal mode"),
         Helper.CreateModeConfiguration(
             "X",

@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 namespace AdaptiveProperties.MAUI.M;
 
 
@@ -8,7 +15,7 @@ namespace AdaptiveProperties.MAUI.M;
   {
 
 
-    private static Func<bool> CheckFunc => () => DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait;
+    private static Func<bool> CheckFunc => () => DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180;
  
 
     public static readonly BindableProperty ColumnDefinitionsProperty = BindableProperty.CreateAttached(
@@ -461,7 +468,7 @@ namespace AdaptiveProperties.MAUI.M;
   {
 
 
-    private static Func<bool> CheckFunc => () => DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Landscape;
+    private static Func<bool> CheckFunc => () => DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270;
  
 
     public static readonly BindableProperty ColumnDefinitionsProperty = BindableProperty.CreateAttached(
@@ -914,7 +921,7 @@ namespace AdaptiveProperties.MAUI.M;
   {
 
 
-    private static Func<bool> CheckFunc => () => DeviceInfo.Idiom == DeviceIdiom.Phone && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait;
+    private static Func<bool> CheckFunc => () => DeviceInfo.Idiom == DeviceIdiom.Phone && (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180);
  
 
     public static readonly BindableProperty ColumnDefinitionsProperty = BindableProperty.CreateAttached(
@@ -1367,7 +1374,7 @@ namespace AdaptiveProperties.MAUI.M;
   {
 
 
-    private static Func<bool> CheckFunc => () => DeviceInfo.Idiom == DeviceIdiom.Phone && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Landscape;
+    private static Func<bool> CheckFunc => () => DeviceInfo.Idiom == DeviceIdiom.Phone&& (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270);
  
 
     public static readonly BindableProperty ColumnDefinitionsProperty = BindableProperty.CreateAttached(
@@ -1820,7 +1827,7 @@ namespace AdaptiveProperties.MAUI.M;
   {
 
 
-    private static Func<bool> CheckFunc => () => DeviceInfo.Idiom == DeviceIdiom.Tablet && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait;
+    private static Func<bool> CheckFunc => () => DeviceInfo.Idiom == DeviceIdiom.Tablet &&  (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180);
  
 
     public static readonly BindableProperty ColumnDefinitionsProperty = BindableProperty.CreateAttached(
@@ -2273,7 +2280,7 @@ namespace AdaptiveProperties.MAUI.M;
   {
 
 
-    private static Func<bool> CheckFunc => () => DeviceInfo.Idiom == DeviceIdiom.Tablet && DeviceDisplay.Current.MainDisplayInfo.Orientation == DisplayOrientation.Portrait;
+    private static Func<bool> CheckFunc => () => DeviceInfo.Idiom == DeviceIdiom.Tablet && (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270);
  
 
     public static readonly BindableProperty ColumnDefinitionsProperty = BindableProperty.CreateAttached(
