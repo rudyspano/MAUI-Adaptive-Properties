@@ -5,6 +5,8 @@
 <#@ assembly name="$(SolutionDir)AdaptiveProperties.Configuration\bin\Debug\net6.0\AdaptiveProperties.Configuration.dll" #>
 <#@ import namespace="AdaptiveProperties.MAUI" #>
 
+using Microsoft.Maui.Converters;
+
 namespace AdaptiveProperties.MAUI.M;
 
 <#

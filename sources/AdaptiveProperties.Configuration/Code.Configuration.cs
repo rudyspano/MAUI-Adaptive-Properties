@@ -1,5 +1,6 @@
 // ReSharper disable CheckNamespace
 using AdaptiveProperties.Configuration;
+using Microsoft.Maui.Converters;
 
 namespace AdaptiveProperties.MAUI;
 
@@ -67,8 +68,11 @@ internal static class Code_Configuration
         Helper.CreatePropertyConfiguration<View, double?>(
             view => view.Opacity
         ),
-        Helper.CreatePropertyConfiguration<View, Thickness?>(
-            view => view.Margin
+        Helper.CreatePropertyConfiguration<View, string>(
+            "Margin",
+            // @formatter:off
+            (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); } 
+            // @formatter:on
         ),
         Helper.CreatePropertyConfiguration<View, Color>(
             view => view.BackgroundColor
@@ -82,8 +86,17 @@ internal static class Code_Configuration
         Helper.CreatePropertyConfiguration<Label, TextAlignment?>(
             view => view.VerticalTextAlignment
         ),
-        Helper.CreatePropertyConfiguration<Layout, Thickness?>(
-            view => view.Padding
+        Helper.CreatePropertyConfiguration<Label, string>(
+            view => view.Text
+        ),
+        Helper.CreatePropertyConfiguration<Label, LineBreakMode?>(
+            view => view.LineBreakMode
+        ),
+        Helper.CreatePropertyConfiguration<Layout, string>(
+            "Padding",
+            // @formatter:off
+            (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); } 
+            // @formatter:on
         ),
         Helper.CreatePropertyConfiguration<StackBase, double?>(
             view => view.Spacing
@@ -99,6 +112,9 @@ internal static class Code_Configuration
         ),
         Helper.CreatePropertyConfiguration<Image, ImageSource>(
             view => view.Source
+        ),
+        Helper.CreatePropertyConfiguration<Image, Aspect?>(
+            view => view.Aspect
         ),
         Helper.CreatePropertyConfiguration<Frame, float?>(
             view => view.CornerRadius

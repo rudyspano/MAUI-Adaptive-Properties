@@ -4,9 +4,18 @@ namespace AdaptiveProperties.Demo;
 
 public partial class HomePage
 {
-	public HomePage()
-	{
-		InitializeComponent();
+    public HomePage()
+    {
+        InitializeComponent();
+    }
+
+    private void Image_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        var image = (Image)sender;
+        if (e.PropertyName == nameof(image.Margin))
+        {
+
+        }
     }
 }
 

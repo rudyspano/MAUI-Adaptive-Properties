@@ -5,6 +5,8 @@
 
 
 
+using Microsoft.Maui.Converters;
+
 namespace AdaptiveProperties.MAUI.M;
 
 
@@ -257,19 +259,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness?), typeof(V), default(Thickness?),
+      "Margin", typeof(string), typeof(V), default(string),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness? value) =>
+    public static void SetMargin(BindableObject element, string value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness? GetMargin(BindableObject element) =>
-      (Thickness?)element.GetValue(MarginProperty);
+    public static string GetMargin(BindableObject element) =>
+      (string)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "V");
+      PropertyDefinition<View, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "V");
     }
  
 
@@ -341,20 +343,54 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty TextProperty = BindableProperty.CreateAttached(
+      "Text", typeof(string), typeof(V), default(string),
+      propertyChanged: TextChanged);
+
+    public static void SetText(BindableObject element, string value) =>
+      element.SetValue(TextProperty, value);
+
+    public static string GetText(BindableObject element) =>
+      (string)element.GetValue(TextProperty);
+
+    private static void TextChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Text; view.Text =value; return (true, previousValue); }, true, "V");
+    }
+ 
+
+    public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
+      "LineBreakMode", typeof(LineBreakMode?), typeof(V), default(LineBreakMode?),
+      propertyChanged: LineBreakModeChanged);
+
+    public static void SetLineBreakMode(BindableObject element, LineBreakMode? value) =>
+      element.SetValue(LineBreakModeProperty, value);
+
+    public static LineBreakMode? GetLineBreakMode(BindableObject element) =>
+      (LineBreakMode?)element.GetValue(LineBreakModeProperty);
+
+    private static void LineBreakModeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, LineBreakMode?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.LineBreakMode; view.LineBreakMode =value.Value; return (true, previousValue); }, true, "V");
+    }
+ 
+
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness?), typeof(V), default(Thickness?),
+      "Padding", typeof(string), typeof(V), default(string),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness? value) =>
+    public static void SetPadding(BindableObject element, string value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness? GetPadding(BindableObject element) =>
-      (Thickness?)element.GetValue(PaddingProperty);
+    public static string GetPadding(BindableObject element) =>
+      (string)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "V");
+      PropertyDefinition<Layout, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "V");
     }
  
 
@@ -440,6 +476,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Image, ImageSource>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.Source; view.Source =value; return (true, previousValue); }, true, "V");
+    }
+ 
+
+    public static readonly BindableProperty AspectProperty = BindableProperty.CreateAttached(
+      "Aspect", typeof(Aspect?), typeof(V), default(Aspect?),
+      propertyChanged: AspectChanged);
+
+    public static void SetAspect(BindableObject element, Aspect? value) =>
+      element.SetValue(AspectProperty, value);
+
+    public static Aspect? GetAspect(BindableObject element) =>
+      (Aspect?)element.GetValue(AspectProperty);
+
+    private static void AspectChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Image, Aspect?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Aspect; view.Aspect =value.Value; return (true, previousValue); }, true, "V");
     }
  
 
@@ -710,19 +763,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness?), typeof(H), default(Thickness?),
+      "Margin", typeof(string), typeof(H), default(string),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness? value) =>
+    public static void SetMargin(BindableObject element, string value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness? GetMargin(BindableObject element) =>
-      (Thickness?)element.GetValue(MarginProperty);
+    public static string GetMargin(BindableObject element) =>
+      (string)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "H");
+      PropertyDefinition<View, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "H");
     }
  
 
@@ -794,20 +847,54 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty TextProperty = BindableProperty.CreateAttached(
+      "Text", typeof(string), typeof(H), default(string),
+      propertyChanged: TextChanged);
+
+    public static void SetText(BindableObject element, string value) =>
+      element.SetValue(TextProperty, value);
+
+    public static string GetText(BindableObject element) =>
+      (string)element.GetValue(TextProperty);
+
+    private static void TextChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Text; view.Text =value; return (true, previousValue); }, true, "H");
+    }
+ 
+
+    public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
+      "LineBreakMode", typeof(LineBreakMode?), typeof(H), default(LineBreakMode?),
+      propertyChanged: LineBreakModeChanged);
+
+    public static void SetLineBreakMode(BindableObject element, LineBreakMode? value) =>
+      element.SetValue(LineBreakModeProperty, value);
+
+    public static LineBreakMode? GetLineBreakMode(BindableObject element) =>
+      (LineBreakMode?)element.GetValue(LineBreakModeProperty);
+
+    private static void LineBreakModeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, LineBreakMode?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.LineBreakMode; view.LineBreakMode =value.Value; return (true, previousValue); }, true, "H");
+    }
+ 
+
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness?), typeof(H), default(Thickness?),
+      "Padding", typeof(string), typeof(H), default(string),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness? value) =>
+    public static void SetPadding(BindableObject element, string value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness? GetPadding(BindableObject element) =>
-      (Thickness?)element.GetValue(PaddingProperty);
+    public static string GetPadding(BindableObject element) =>
+      (string)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "H");
+      PropertyDefinition<Layout, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "H");
     }
  
 
@@ -893,6 +980,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Image, ImageSource>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.Source; view.Source =value; return (true, previousValue); }, true, "H");
+    }
+ 
+
+    public static readonly BindableProperty AspectProperty = BindableProperty.CreateAttached(
+      "Aspect", typeof(Aspect?), typeof(H), default(Aspect?),
+      propertyChanged: AspectChanged);
+
+    public static void SetAspect(BindableObject element, Aspect? value) =>
+      element.SetValue(AspectProperty, value);
+
+    public static Aspect? GetAspect(BindableObject element) =>
+      (Aspect?)element.GetValue(AspectProperty);
+
+    private static void AspectChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Image, Aspect?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Aspect; view.Aspect =value.Value; return (true, previousValue); }, true, "H");
     }
  
 
@@ -1163,19 +1267,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness?), typeof(PV), default(Thickness?),
+      "Margin", typeof(string), typeof(PV), default(string),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness? value) =>
+    public static void SetMargin(BindableObject element, string value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness? GetMargin(BindableObject element) =>
-      (Thickness?)element.GetValue(MarginProperty);
+    public static string GetMargin(BindableObject element) =>
+      (string)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "PV");
+      PropertyDefinition<View, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "PV");
     }
  
 
@@ -1247,20 +1351,54 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty TextProperty = BindableProperty.CreateAttached(
+      "Text", typeof(string), typeof(PV), default(string),
+      propertyChanged: TextChanged);
+
+    public static void SetText(BindableObject element, string value) =>
+      element.SetValue(TextProperty, value);
+
+    public static string GetText(BindableObject element) =>
+      (string)element.GetValue(TextProperty);
+
+    private static void TextChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Text; view.Text =value; return (true, previousValue); }, true, "PV");
+    }
+ 
+
+    public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
+      "LineBreakMode", typeof(LineBreakMode?), typeof(PV), default(LineBreakMode?),
+      propertyChanged: LineBreakModeChanged);
+
+    public static void SetLineBreakMode(BindableObject element, LineBreakMode? value) =>
+      element.SetValue(LineBreakModeProperty, value);
+
+    public static LineBreakMode? GetLineBreakMode(BindableObject element) =>
+      (LineBreakMode?)element.GetValue(LineBreakModeProperty);
+
+    private static void LineBreakModeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, LineBreakMode?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.LineBreakMode; view.LineBreakMode =value.Value; return (true, previousValue); }, true, "PV");
+    }
+ 
+
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness?), typeof(PV), default(Thickness?),
+      "Padding", typeof(string), typeof(PV), default(string),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness? value) =>
+    public static void SetPadding(BindableObject element, string value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness? GetPadding(BindableObject element) =>
-      (Thickness?)element.GetValue(PaddingProperty);
+    public static string GetPadding(BindableObject element) =>
+      (string)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "PV");
+      PropertyDefinition<Layout, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "PV");
     }
  
 
@@ -1346,6 +1484,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Image, ImageSource>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.Source; view.Source =value; return (true, previousValue); }, true, "PV");
+    }
+ 
+
+    public static readonly BindableProperty AspectProperty = BindableProperty.CreateAttached(
+      "Aspect", typeof(Aspect?), typeof(PV), default(Aspect?),
+      propertyChanged: AspectChanged);
+
+    public static void SetAspect(BindableObject element, Aspect? value) =>
+      element.SetValue(AspectProperty, value);
+
+    public static Aspect? GetAspect(BindableObject element) =>
+      (Aspect?)element.GetValue(AspectProperty);
+
+    private static void AspectChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Image, Aspect?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Aspect; view.Aspect =value.Value; return (true, previousValue); }, true, "PV");
     }
  
 
@@ -1616,19 +1771,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness?), typeof(PH), default(Thickness?),
+      "Margin", typeof(string), typeof(PH), default(string),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness? value) =>
+    public static void SetMargin(BindableObject element, string value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness? GetMargin(BindableObject element) =>
-      (Thickness?)element.GetValue(MarginProperty);
+    public static string GetMargin(BindableObject element) =>
+      (string)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "PH");
+      PropertyDefinition<View, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "PH");
     }
  
 
@@ -1700,20 +1855,54 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty TextProperty = BindableProperty.CreateAttached(
+      "Text", typeof(string), typeof(PH), default(string),
+      propertyChanged: TextChanged);
+
+    public static void SetText(BindableObject element, string value) =>
+      element.SetValue(TextProperty, value);
+
+    public static string GetText(BindableObject element) =>
+      (string)element.GetValue(TextProperty);
+
+    private static void TextChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Text; view.Text =value; return (true, previousValue); }, true, "PH");
+    }
+ 
+
+    public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
+      "LineBreakMode", typeof(LineBreakMode?), typeof(PH), default(LineBreakMode?),
+      propertyChanged: LineBreakModeChanged);
+
+    public static void SetLineBreakMode(BindableObject element, LineBreakMode? value) =>
+      element.SetValue(LineBreakModeProperty, value);
+
+    public static LineBreakMode? GetLineBreakMode(BindableObject element) =>
+      (LineBreakMode?)element.GetValue(LineBreakModeProperty);
+
+    private static void LineBreakModeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, LineBreakMode?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.LineBreakMode; view.LineBreakMode =value.Value; return (true, previousValue); }, true, "PH");
+    }
+ 
+
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness?), typeof(PH), default(Thickness?),
+      "Padding", typeof(string), typeof(PH), default(string),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness? value) =>
+    public static void SetPadding(BindableObject element, string value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness? GetPadding(BindableObject element) =>
-      (Thickness?)element.GetValue(PaddingProperty);
+    public static string GetPadding(BindableObject element) =>
+      (string)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "PH");
+      PropertyDefinition<Layout, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "PH");
     }
  
 
@@ -1799,6 +1988,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Image, ImageSource>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.Source; view.Source =value; return (true, previousValue); }, true, "PH");
+    }
+ 
+
+    public static readonly BindableProperty AspectProperty = BindableProperty.CreateAttached(
+      "Aspect", typeof(Aspect?), typeof(PH), default(Aspect?),
+      propertyChanged: AspectChanged);
+
+    public static void SetAspect(BindableObject element, Aspect? value) =>
+      element.SetValue(AspectProperty, value);
+
+    public static Aspect? GetAspect(BindableObject element) =>
+      (Aspect?)element.GetValue(AspectProperty);
+
+    private static void AspectChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Image, Aspect?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Aspect; view.Aspect =value.Value; return (true, previousValue); }, true, "PH");
     }
  
 
@@ -2069,19 +2275,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness?), typeof(TV), default(Thickness?),
+      "Margin", typeof(string), typeof(TV), default(string),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness? value) =>
+    public static void SetMargin(BindableObject element, string value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness? GetMargin(BindableObject element) =>
-      (Thickness?)element.GetValue(MarginProperty);
+    public static string GetMargin(BindableObject element) =>
+      (string)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "TV");
+      PropertyDefinition<View, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "TV");
     }
  
 
@@ -2153,20 +2359,54 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty TextProperty = BindableProperty.CreateAttached(
+      "Text", typeof(string), typeof(TV), default(string),
+      propertyChanged: TextChanged);
+
+    public static void SetText(BindableObject element, string value) =>
+      element.SetValue(TextProperty, value);
+
+    public static string GetText(BindableObject element) =>
+      (string)element.GetValue(TextProperty);
+
+    private static void TextChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Text; view.Text =value; return (true, previousValue); }, true, "TV");
+    }
+ 
+
+    public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
+      "LineBreakMode", typeof(LineBreakMode?), typeof(TV), default(LineBreakMode?),
+      propertyChanged: LineBreakModeChanged);
+
+    public static void SetLineBreakMode(BindableObject element, LineBreakMode? value) =>
+      element.SetValue(LineBreakModeProperty, value);
+
+    public static LineBreakMode? GetLineBreakMode(BindableObject element) =>
+      (LineBreakMode?)element.GetValue(LineBreakModeProperty);
+
+    private static void LineBreakModeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, LineBreakMode?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.LineBreakMode; view.LineBreakMode =value.Value; return (true, previousValue); }, true, "TV");
+    }
+ 
+
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness?), typeof(TV), default(Thickness?),
+      "Padding", typeof(string), typeof(TV), default(string),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness? value) =>
+    public static void SetPadding(BindableObject element, string value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness? GetPadding(BindableObject element) =>
-      (Thickness?)element.GetValue(PaddingProperty);
+    public static string GetPadding(BindableObject element) =>
+      (string)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "TV");
+      PropertyDefinition<Layout, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "TV");
     }
  
 
@@ -2252,6 +2492,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Image, ImageSource>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.Source; view.Source =value; return (true, previousValue); }, true, "TV");
+    }
+ 
+
+    public static readonly BindableProperty AspectProperty = BindableProperty.CreateAttached(
+      "Aspect", typeof(Aspect?), typeof(TV), default(Aspect?),
+      propertyChanged: AspectChanged);
+
+    public static void SetAspect(BindableObject element, Aspect? value) =>
+      element.SetValue(AspectProperty, value);
+
+    public static Aspect? GetAspect(BindableObject element) =>
+      (Aspect?)element.GetValue(AspectProperty);
+
+    private static void AspectChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Image, Aspect?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Aspect; view.Aspect =value.Value; return (true, previousValue); }, true, "TV");
     }
  
 
@@ -2522,19 +2779,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness?), typeof(TH), default(Thickness?),
+      "Margin", typeof(string), typeof(TH), default(string),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness? value) =>
+    public static void SetMargin(BindableObject element, string value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness? GetMargin(BindableObject element) =>
-      (Thickness?)element.GetValue(MarginProperty);
+    public static string GetMargin(BindableObject element) =>
+      (string)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, true, "TH");
+      PropertyDefinition<View, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "TH");
     }
  
 
@@ -2606,20 +2863,54 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty TextProperty = BindableProperty.CreateAttached(
+      "Text", typeof(string), typeof(TH), default(string),
+      propertyChanged: TextChanged);
+
+    public static void SetText(BindableObject element, string value) =>
+      element.SetValue(TextProperty, value);
+
+    public static string GetText(BindableObject element) =>
+      (string)element.GetValue(TextProperty);
+
+    private static void TextChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Text; view.Text =value; return (true, previousValue); }, true, "TH");
+    }
+ 
+
+    public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
+      "LineBreakMode", typeof(LineBreakMode?), typeof(TH), default(LineBreakMode?),
+      propertyChanged: LineBreakModeChanged);
+
+    public static void SetLineBreakMode(BindableObject element, LineBreakMode? value) =>
+      element.SetValue(LineBreakModeProperty, value);
+
+    public static LineBreakMode? GetLineBreakMode(BindableObject element) =>
+      (LineBreakMode?)element.GetValue(LineBreakModeProperty);
+
+    private static void LineBreakModeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, LineBreakMode?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.LineBreakMode; view.LineBreakMode =value.Value; return (true, previousValue); }, true, "TH");
+    }
+ 
+
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness?), typeof(TH), default(Thickness?),
+      "Padding", typeof(string), typeof(TH), default(string),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness? value) =>
+    public static void SetPadding(BindableObject element, string value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness? GetPadding(BindableObject element) =>
-      (Thickness?)element.GetValue(PaddingProperty);
+    public static string GetPadding(BindableObject element) =>
+      (string)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, true, "TH");
+      PropertyDefinition<Layout, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, true, "TH");
     }
  
 
@@ -2705,6 +2996,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Image, ImageSource>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.Source; view.Source =value; return (true, previousValue); }, true, "TH");
+    }
+ 
+
+    public static readonly BindableProperty AspectProperty = BindableProperty.CreateAttached(
+      "Aspect", typeof(Aspect?), typeof(TH), default(Aspect?),
+      propertyChanged: AspectChanged);
+
+    public static void SetAspect(BindableObject element, Aspect? value) =>
+      element.SetValue(AspectProperty, value);
+
+    public static Aspect? GetAspect(BindableObject element) =>
+      (Aspect?)element.GetValue(AspectProperty);
+
+    private static void AspectChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Image, Aspect?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Aspect; view.Aspect =value.Value; return (true, previousValue); }, true, "TH");
     }
  
 
@@ -2987,19 +3295,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness?), typeof(X), default(Thickness?),
+      "Margin", typeof(string), typeof(X), default(string),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness? value) =>
+    public static void SetMargin(BindableObject element, string value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness? GetMargin(BindableObject element) =>
-      (Thickness?)element.GetValue(MarginProperty);
+    public static string GetMargin(BindableObject element) =>
+      (string)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, false, "X");
+      PropertyDefinition<View, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, false, "X");
     }
  
 
@@ -3071,20 +3379,54 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty TextProperty = BindableProperty.CreateAttached(
+      "Text", typeof(string), typeof(X), default(string),
+      propertyChanged: TextChanged);
+
+    public static void SetText(BindableObject element, string value) =>
+      element.SetValue(TextProperty, value);
+
+    public static string GetText(BindableObject element) =>
+      (string)element.GetValue(TextProperty);
+
+    private static void TextChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Text; view.Text =value; return (true, previousValue); }, false, "X");
+    }
+ 
+
+    public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
+      "LineBreakMode", typeof(LineBreakMode?), typeof(X), default(LineBreakMode?),
+      propertyChanged: LineBreakModeChanged);
+
+    public static void SetLineBreakMode(BindableObject element, LineBreakMode? value) =>
+      element.SetValue(LineBreakModeProperty, value);
+
+    public static LineBreakMode? GetLineBreakMode(BindableObject element) =>
+      (LineBreakMode?)element.GetValue(LineBreakModeProperty);
+
+    private static void LineBreakModeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, LineBreakMode?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.LineBreakMode; view.LineBreakMode =value.Value; return (true, previousValue); }, false, "X");
+    }
+ 
+
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness?), typeof(X), default(Thickness?),
+      "Padding", typeof(string), typeof(X), default(string),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness? value) =>
+    public static void SetPadding(BindableObject element, string value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness? GetPadding(BindableObject element) =>
-      (Thickness?)element.GetValue(PaddingProperty);
+    public static string GetPadding(BindableObject element) =>
+      (string)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, false, "X");
+      PropertyDefinition<Layout, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, false, "X");
     }
  
 
@@ -3170,6 +3512,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Image, ImageSource>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.Source; view.Source =value; return (true, previousValue); }, false, "X");
+    }
+ 
+
+    public static readonly BindableProperty AspectProperty = BindableProperty.CreateAttached(
+      "Aspect", typeof(Aspect?), typeof(X), default(Aspect?),
+      propertyChanged: AspectChanged);
+
+    public static void SetAspect(BindableObject element, Aspect? value) =>
+      element.SetValue(AspectProperty, value);
+
+    public static Aspect? GetAspect(BindableObject element) =>
+      (Aspect?)element.GetValue(AspectProperty);
+
+    private static void AspectChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Image, Aspect?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Aspect; view.Aspect =value.Value; return (true, previousValue); }, false, "X");
     }
  
 
@@ -3452,19 +3811,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness?), typeof(X2), default(Thickness?),
+      "Margin", typeof(string), typeof(X2), default(string),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness? value) =>
+    public static void SetMargin(BindableObject element, string value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness? GetMargin(BindableObject element) =>
-      (Thickness?)element.GetValue(MarginProperty);
+    public static string GetMargin(BindableObject element) =>
+      (string)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, false, "X2");
+      PropertyDefinition<View, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, false, "X2");
     }
  
 
@@ -3536,20 +3895,54 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty TextProperty = BindableProperty.CreateAttached(
+      "Text", typeof(string), typeof(X2), default(string),
+      propertyChanged: TextChanged);
+
+    public static void SetText(BindableObject element, string value) =>
+      element.SetValue(TextProperty, value);
+
+    public static string GetText(BindableObject element) =>
+      (string)element.GetValue(TextProperty);
+
+    private static void TextChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Text; view.Text =value; return (true, previousValue); }, false, "X2");
+    }
+ 
+
+    public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
+      "LineBreakMode", typeof(LineBreakMode?), typeof(X2), default(LineBreakMode?),
+      propertyChanged: LineBreakModeChanged);
+
+    public static void SetLineBreakMode(BindableObject element, LineBreakMode? value) =>
+      element.SetValue(LineBreakModeProperty, value);
+
+    public static LineBreakMode? GetLineBreakMode(BindableObject element) =>
+      (LineBreakMode?)element.GetValue(LineBreakModeProperty);
+
+    private static void LineBreakModeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, LineBreakMode?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.LineBreakMode; view.LineBreakMode =value.Value; return (true, previousValue); }, false, "X2");
+    }
+ 
+
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness?), typeof(X2), default(Thickness?),
+      "Padding", typeof(string), typeof(X2), default(string),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness? value) =>
+    public static void SetPadding(BindableObject element, string value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness? GetPadding(BindableObject element) =>
-      (Thickness?)element.GetValue(PaddingProperty);
+    public static string GetPadding(BindableObject element) =>
+      (string)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, false, "X2");
+      PropertyDefinition<Layout, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, false, "X2");
     }
  
 
@@ -3635,6 +4028,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Image, ImageSource>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.Source; view.Source =value; return (true, previousValue); }, false, "X2");
+    }
+ 
+
+    public static readonly BindableProperty AspectProperty = BindableProperty.CreateAttached(
+      "Aspect", typeof(Aspect?), typeof(X2), default(Aspect?),
+      propertyChanged: AspectChanged);
+
+    public static void SetAspect(BindableObject element, Aspect? value) =>
+      element.SetValue(AspectProperty, value);
+
+    public static Aspect? GetAspect(BindableObject element) =>
+      (Aspect?)element.GetValue(AspectProperty);
+
+    private static void AspectChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Image, Aspect?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Aspect; view.Aspect =value.Value; return (true, previousValue); }, false, "X2");
     }
  
 
@@ -3917,19 +4327,19 @@ namespace AdaptiveProperties.MAUI.M;
  
 
     public static readonly BindableProperty MarginProperty = BindableProperty.CreateAttached(
-      "Margin", typeof(Thickness?), typeof(X3), default(Thickness?),
+      "Margin", typeof(string), typeof(X3), default(string),
       propertyChanged: MarginChanged);
 
-    public static void SetMargin(BindableObject element, Thickness? value) =>
+    public static void SetMargin(BindableObject element, string value) =>
       element.SetValue(MarginProperty, value);
 
-    public static Thickness? GetMargin(BindableObject element) =>
-      (Thickness?)element.GetValue(MarginProperty);
+    public static string GetMargin(BindableObject element) =>
+      (string)element.GetValue(MarginProperty);
 
     private static void MarginChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<View, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Margin; view.Margin =value.Value; return (true, previousValue); }, false, "X3");
+      PropertyDefinition<View, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, false, "X3");
     }
  
 
@@ -4001,20 +4411,54 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty TextProperty = BindableProperty.CreateAttached(
+      "Text", typeof(string), typeof(X3), default(string),
+      propertyChanged: TextChanged);
+
+    public static void SetText(BindableObject element, string value) =>
+      element.SetValue(TextProperty, value);
+
+    public static string GetText(BindableObject element) =>
+      (string)element.GetValue(TextProperty);
+
+    private static void TextChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Text; view.Text =value; return (true, previousValue); }, false, "X3");
+    }
+ 
+
+    public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
+      "LineBreakMode", typeof(LineBreakMode?), typeof(X3), default(LineBreakMode?),
+      propertyChanged: LineBreakModeChanged);
+
+    public static void SetLineBreakMode(BindableObject element, LineBreakMode? value) =>
+      element.SetValue(LineBreakModeProperty, value);
+
+    public static LineBreakMode? GetLineBreakMode(BindableObject element) =>
+      (LineBreakMode?)element.GetValue(LineBreakModeProperty);
+
+    private static void LineBreakModeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, LineBreakMode?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.LineBreakMode; view.LineBreakMode =value.Value; return (true, previousValue); }, false, "X3");
+    }
+ 
+
     public static readonly BindableProperty PaddingProperty = BindableProperty.CreateAttached(
-      "Padding", typeof(Thickness?), typeof(X3), default(Thickness?),
+      "Padding", typeof(string), typeof(X3), default(string),
       propertyChanged: PaddingChanged);
 
-    public static void SetPadding(BindableObject element, Thickness? value) =>
+    public static void SetPadding(BindableObject element, string value) =>
       element.SetValue(PaddingProperty, value);
 
-    public static Thickness? GetPadding(BindableObject element) =>
-      (Thickness?)element.GetValue(PaddingProperty);
+    public static string GetPadding(BindableObject element) =>
+      (string)element.GetValue(PaddingProperty);
 
     private static void PaddingChanged(BindableObject bindable, object oldvalue, object newvalue)
     {
-      PropertyDefinition<Layout, Thickness?>.ListenProperty(bindable, newvalue, CheckFunc,
-        (view,value) => { var previousValue = view.Padding; view.Padding =value.Value; return (true, previousValue); }, false, "X3");
+      PropertyDefinition<Layout, string>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }, false, "X3");
     }
  
 
@@ -4100,6 +4544,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Image, ImageSource>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.Source; view.Source =value; return (true, previousValue); }, false, "X3");
+    }
+ 
+
+    public static readonly BindableProperty AspectProperty = BindableProperty.CreateAttached(
+      "Aspect", typeof(Aspect?), typeof(X3), default(Aspect?),
+      propertyChanged: AspectChanged);
+
+    public static void SetAspect(BindableObject element, Aspect? value) =>
+      element.SetValue(AspectProperty, value);
+
+    public static Aspect? GetAspect(BindableObject element) =>
+      (Aspect?)element.GetValue(AspectProperty);
+
+    private static void AspectChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Image, Aspect?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.Aspect; view.Aspect =value.Value; return (true, previousValue); }, false, "X3");
     }
  
 

@@ -6,6 +6,7 @@
 
 // ReSharper disable CheckNamespace
 using AdaptiveProperties.Configuration;
+using Microsoft.Maui.Converters;
 
 namespace AdaptiveProperties.MAUI;
 
@@ -45,8 +46,9 @@ public static class Configuration
 "IsVisible"        ),
         new PropertyConfiguration("View", "double?",
 "Opacity"        ),
-        new PropertyConfiguration("View", "Thickness?",
-"Margin"        ),
+        new PropertyConfiguration("View", "string",
+            "Margin",
+"(view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Margin, typeof(string)); view.Margin = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }"        ),
         new PropertyConfiguration("View", "Color",
 "BackgroundColor"        ),
         new PropertyConfiguration("Label", "Color",
@@ -55,8 +57,13 @@ public static class Configuration
 "HorizontalTextAlignment"        ),
         new PropertyConfiguration("Label", "TextAlignment?",
 "VerticalTextAlignment"        ),
-        new PropertyConfiguration("Layout", "Thickness?",
-"Padding"        ),
+        new PropertyConfiguration("Label", "string",
+"Text"        ),
+        new PropertyConfiguration("Label", "LineBreakMode?",
+"LineBreakMode"        ),
+        new PropertyConfiguration("Layout", "string",
+            "Padding",
+"(view,value) => { var converter = new ThicknessTypeConverter(); var previousValue = (string)converter.ConvertTo(value: view.Padding, typeof(string)); view.Padding = (Thickness)converter.ConvertFrom(value); return (true, previousValue); }"        ),
         new PropertyConfiguration("StackBase", "double?",
 "Spacing"        ),
         new PropertyConfiguration("StackLayout", "StackOrientation?",
@@ -67,6 +74,8 @@ public static class Configuration
 "ColumnSpacing"        ),
         new PropertyConfiguration("Image", "ImageSource",
 "Source"        ),
+        new PropertyConfiguration("Image", "Aspect?",
+"Aspect"        ),
         new PropertyConfiguration("Frame", "float?",
 "CornerRadius"        ),
     };
