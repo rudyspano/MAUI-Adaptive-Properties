@@ -31,6 +31,7 @@ namespace AdaptiveProperties.Demo.Model
                     var product = new Product()
                     {
                         Name = $"{shelfName}_{indexProduct + 1}",
+                        Description = $"Description of {shelfName}_{indexProduct + 1}",
                         ImageUrl = $"https://picsum.photos/300/300?rayon={indexShelf}&product={indexProduct}",
                         Price = $"{random.Next(999)}.{random.Next(99)}"
                     };
@@ -59,6 +60,8 @@ namespace AdaptiveProperties.Demo.Model
     public class Product
     {
         public string Name { get; set; }
+
+        public string Description { get; set; }
 
         public string ImageUrl { get; set; }
 

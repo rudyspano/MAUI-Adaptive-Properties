@@ -119,6 +119,9 @@ internal static class Code_Configuration
         Helper.CreatePropertyConfiguration<Frame, float?>(
             view => view.CornerRadius
         ),
+        Helper.CreatePropertyConfiguration<CollectionView, IItemsLayout>(
+            view => view.ItemsLayout
+        )
     };
 
     internal static ModeConfiguration[] Code_Modes = new[]

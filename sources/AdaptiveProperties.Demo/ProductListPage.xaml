@@ -1,30 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage x:Class="AdaptiveProperties.Demo.ProductListPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:AdaptiveProperties.Demo.Model"
-             xmlns:viewModel="clr-namespace:AdaptiveProperties.Demo.ViewModel"
-             x:Class="AdaptiveProperties.Demo.ProductListPage" BackgroundColor="Gray"
+             xmlns:model="clr-namespace:AdaptiveProperties.Demo.Model" xmlns:viewModel="clr-namespace:AdaptiveProperties.Demo.ViewModel" xmlns:m="clr-namespace:AdaptiveProperties.MAUI.M;assembly=AdaptiveProperties.MAUI"
              Title="{Binding Shelf.Name}"
+             BackgroundColor="Gray"
              x:DataType="viewModel:ProduitListViewModel">
     <ContentPage.BindingContext>
-        <viewModel:ProduitListViewModel/>
+        <viewModel:ProduitListViewModel />
     </ContentPage.BindingContext>
 
-    <CollectionView ItemsSource="{Binding ProductList}" BackgroundColor="Gray">
+    <CollectionView BackgroundColor="Gray"
+                    ItemsSource="{Binding ProductList}">
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"/>
+            <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
         </CollectionView.ItemsLayout>
+        <m:H.ItemsLayout>
+            <GridItemsLayout HorizontalItemSpacing="1" VerticalItemSpacing="1" Orientation="Vertical"
+                             Span="2" />
+        </m:H.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Product">
-                <Grid ColumnSpacing="8" Padding="8" HeightRequest="160" ColumnDefinitions="140, *" BackgroundColor="White">
+                <Grid Padding="8" HeightRequest="160" ColumnSpacing="8" ColumnDefinitions="140, *"
+                      BackgroundColor="White">
                     <Image Source="{Binding ImageUrl}" />
-                    <Label Grid.Column="1" Text="{Binding Name}"/>
-                    <StackLayout Grid.Column="1"  VerticalOptions="End" HorizontalOptions="End" >
-                        <Label 
-                           TextColor="DarkBlue" FontAttributes="Bold" FontSize="30"
-                           Text="{Binding Price, StringFormat='{0}€'}"/>
-                        <Button WidthRequest="40" HeightRequest="40" CornerRadius="20" HorizontalOptions="End" Text="+" />
-                    </StackLayout>
+                    <VerticalStackLayout Grid.Column="1">
+                        <VerticalStackLayout.Resources>
+                            <!--  Adaptive properties can also be applied in a Style  -->
+                            <Style TargetType="Label">
+                                <Setter Value="Blue" Property="m:H.TextColor" />
+                            </Style>
+                        </VerticalStackLayout.Resources>
+                        <Label Text="{Binding Name}" />
+                        <Label TextColor="Gray"
+                               Text="{Binding Description}" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="End" VerticalOptions="End">
+                        <Label FontAttributes="Bold" FontSize="30" TextColor="DarkBlue"
+                               Text="{Binding Price, StringFormat='{0}€'}" />
+                        <Button WidthRequest="40" HeightRequest="40" HorizontalOptions="End"
+                                Text="+"
+                                m:H.IsVisible="False" CornerRadius="20" />
+                        <Button HeightRequest="40" HorizontalOptions="End"
+                                IsVisible="False"
+                                Text="Ajouter"
+                                m:H.IsVisible="True" CornerRadius="20" />
+                    </VerticalStackLayout>
                 </Grid>
             </DataTemplate>
         </CollectionView.ItemTemplate>

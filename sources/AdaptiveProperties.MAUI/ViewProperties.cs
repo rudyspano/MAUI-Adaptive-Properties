@@ -511,6 +511,23 @@ namespace AdaptiveProperties.MAUI.M;
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "V");
     }
+ 
+
+    public static readonly BindableProperty ItemsLayoutProperty = BindableProperty.CreateAttached(
+      "ItemsLayout", typeof(IItemsLayout), typeof(V), default(IItemsLayout),
+      propertyChanged: ItemsLayoutChanged);
+
+    public static void SetItemsLayout(BindableObject element, IItemsLayout value) =>
+      element.SetValue(ItemsLayoutProperty, value);
+
+    public static IItemsLayout GetItemsLayout(BindableObject element) =>
+      (IItemsLayout)element.GetValue(ItemsLayoutProperty);
+
+    private static void ItemsLayoutChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<CollectionView, IItemsLayout>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.ItemsLayout; view.ItemsLayout =value; return (true, previousValue); }, true, "V");
+    }
 
 }
 
@@ -1014,6 +1031,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "H");
+    }
+ 
+
+    public static readonly BindableProperty ItemsLayoutProperty = BindableProperty.CreateAttached(
+      "ItemsLayout", typeof(IItemsLayout), typeof(H), default(IItemsLayout),
+      propertyChanged: ItemsLayoutChanged);
+
+    public static void SetItemsLayout(BindableObject element, IItemsLayout value) =>
+      element.SetValue(ItemsLayoutProperty, value);
+
+    public static IItemsLayout GetItemsLayout(BindableObject element) =>
+      (IItemsLayout)element.GetValue(ItemsLayoutProperty);
+
+    private static void ItemsLayoutChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<CollectionView, IItemsLayout>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.ItemsLayout; view.ItemsLayout =value; return (true, previousValue); }, true, "H");
     }
 
 }
@@ -1519,6 +1553,23 @@ namespace AdaptiveProperties.MAUI.M;
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "PV");
     }
+ 
+
+    public static readonly BindableProperty ItemsLayoutProperty = BindableProperty.CreateAttached(
+      "ItemsLayout", typeof(IItemsLayout), typeof(PV), default(IItemsLayout),
+      propertyChanged: ItemsLayoutChanged);
+
+    public static void SetItemsLayout(BindableObject element, IItemsLayout value) =>
+      element.SetValue(ItemsLayoutProperty, value);
+
+    public static IItemsLayout GetItemsLayout(BindableObject element) =>
+      (IItemsLayout)element.GetValue(ItemsLayoutProperty);
+
+    private static void ItemsLayoutChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<CollectionView, IItemsLayout>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.ItemsLayout; view.ItemsLayout =value; return (true, previousValue); }, true, "PV");
+    }
 
 }
 
@@ -2022,6 +2073,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "PH");
+    }
+ 
+
+    public static readonly BindableProperty ItemsLayoutProperty = BindableProperty.CreateAttached(
+      "ItemsLayout", typeof(IItemsLayout), typeof(PH), default(IItemsLayout),
+      propertyChanged: ItemsLayoutChanged);
+
+    public static void SetItemsLayout(BindableObject element, IItemsLayout value) =>
+      element.SetValue(ItemsLayoutProperty, value);
+
+    public static IItemsLayout GetItemsLayout(BindableObject element) =>
+      (IItemsLayout)element.GetValue(ItemsLayoutProperty);
+
+    private static void ItemsLayoutChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<CollectionView, IItemsLayout>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.ItemsLayout; view.ItemsLayout =value; return (true, previousValue); }, true, "PH");
     }
 
 }
@@ -2527,6 +2595,23 @@ namespace AdaptiveProperties.MAUI.M;
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "TV");
     }
+ 
+
+    public static readonly BindableProperty ItemsLayoutProperty = BindableProperty.CreateAttached(
+      "ItemsLayout", typeof(IItemsLayout), typeof(TV), default(IItemsLayout),
+      propertyChanged: ItemsLayoutChanged);
+
+    public static void SetItemsLayout(BindableObject element, IItemsLayout value) =>
+      element.SetValue(ItemsLayoutProperty, value);
+
+    public static IItemsLayout GetItemsLayout(BindableObject element) =>
+      (IItemsLayout)element.GetValue(ItemsLayoutProperty);
+
+    private static void ItemsLayoutChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<CollectionView, IItemsLayout>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.ItemsLayout; view.ItemsLayout =value; return (true, previousValue); }, true, "TV");
+    }
 
 }
 
@@ -3030,6 +3115,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "TH");
+    }
+ 
+
+    public static readonly BindableProperty ItemsLayoutProperty = BindableProperty.CreateAttached(
+      "ItemsLayout", typeof(IItemsLayout), typeof(TH), default(IItemsLayout),
+      propertyChanged: ItemsLayoutChanged);
+
+    public static void SetItemsLayout(BindableObject element, IItemsLayout value) =>
+      element.SetValue(ItemsLayoutProperty, value);
+
+    public static IItemsLayout GetItemsLayout(BindableObject element) =>
+      (IItemsLayout)element.GetValue(ItemsLayoutProperty);
+
+    private static void ItemsLayoutChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<CollectionView, IItemsLayout>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.ItemsLayout; view.ItemsLayout =value; return (true, previousValue); }, true, "TH");
     }
 
 }
@@ -3547,6 +3649,23 @@ namespace AdaptiveProperties.MAUI.M;
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, false, "X");
     }
+ 
+
+    public static readonly BindableProperty ItemsLayoutProperty = BindableProperty.CreateAttached(
+      "ItemsLayout", typeof(IItemsLayout), typeof(X), default(IItemsLayout),
+      propertyChanged: ItemsLayoutChanged);
+
+    public static void SetItemsLayout(BindableObject element, IItemsLayout value) =>
+      element.SetValue(ItemsLayoutProperty, value);
+
+    public static IItemsLayout GetItemsLayout(BindableObject element) =>
+      (IItemsLayout)element.GetValue(ItemsLayoutProperty);
+
+    private static void ItemsLayoutChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<CollectionView, IItemsLayout>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.ItemsLayout; view.ItemsLayout =value; return (true, previousValue); }, false, "X");
+    }
 
 }
 
@@ -4063,6 +4182,23 @@ namespace AdaptiveProperties.MAUI.M;
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, false, "X2");
     }
+ 
+
+    public static readonly BindableProperty ItemsLayoutProperty = BindableProperty.CreateAttached(
+      "ItemsLayout", typeof(IItemsLayout), typeof(X2), default(IItemsLayout),
+      propertyChanged: ItemsLayoutChanged);
+
+    public static void SetItemsLayout(BindableObject element, IItemsLayout value) =>
+      element.SetValue(ItemsLayoutProperty, value);
+
+    public static IItemsLayout GetItemsLayout(BindableObject element) =>
+      (IItemsLayout)element.GetValue(ItemsLayoutProperty);
+
+    private static void ItemsLayoutChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<CollectionView, IItemsLayout>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.ItemsLayout; view.ItemsLayout =value; return (true, previousValue); }, false, "X2");
+    }
 
 }
 
@@ -4578,6 +4714,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, false, "X3");
+    }
+ 
+
+    public static readonly BindableProperty ItemsLayoutProperty = BindableProperty.CreateAttached(
+      "ItemsLayout", typeof(IItemsLayout), typeof(X3), default(IItemsLayout),
+      propertyChanged: ItemsLayoutChanged);
+
+    public static void SetItemsLayout(BindableObject element, IItemsLayout value) =>
+      element.SetValue(ItemsLayoutProperty, value);
+
+    public static IItemsLayout GetItemsLayout(BindableObject element) =>
+      (IItemsLayout)element.GetValue(ItemsLayoutProperty);
+
+    private static void ItemsLayoutChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<CollectionView, IItemsLayout>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.ItemsLayout; view.ItemsLayout =value; return (true, previousValue); }, false, "X3");
     }
 
 }

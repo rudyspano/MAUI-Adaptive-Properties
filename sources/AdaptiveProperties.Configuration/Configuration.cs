@@ -78,6 +78,8 @@ public static class Configuration
 "Aspect"        ),
         new PropertyConfiguration("Frame", "float?",
 "CornerRadius"        ),
+        new PropertyConfiguration("CollectionView", "IItemsLayout",
+"ItemsLayout"        )
     };
 
     public static ModeConfiguration[] Modes = new[]

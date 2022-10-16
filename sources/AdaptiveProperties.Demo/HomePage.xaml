@@ -13,19 +13,12 @@
         <VerticalStackLayout>
             <Grid HeightRequest="200"
                   BackgroundColor="LightGray">
-                <HorizontalStackLayout HorizontalOptions="End" VerticalOptions="Start">
-                    <Label VerticalTextAlignment="Center"
-                           Text="Your First Name : " />
-                    <Entry x:Name="EntryName"
-                           BackgroundColor="White"
-                           Text="John Doe"
-                           Placeholder="FirstName" />
-                </HorizontalStackLayout>
+                
                 <Label Margin="10" VerticalOptions="Center"
                        FontSize="40"
-                       Text="{Binding Text, Source={x:Reference EntryName}, Mode=OneWay, StringFormat='Hello {0}'}"
+                       Text="Hello !!!"
                        m:H.LineBreakMode="TailTruncation"
-                       m:H.Text="{Binding Text, Mode=OneWay, Source={x:Reference EntryName}, StringFormat='Welcome new User {0} to my Demo !!!'}" />
+                       m:H.Text="Welcome new User to my Demo !!!" />
             </Grid>
 
             <Grid Padding="4" ColumnSpacing="4" RowSpacing="4" RowDefinitions="100,100" ColumnDefinitions="*,*,*"
