@@ -91,11 +91,17 @@ public static class Configuration
             "H",
 "DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270",            "Phone/Tablet Horizontal mode"),
         new ModeConfiguration(
+            "P",
+"DeviceInfo.Idiom == DeviceIdiom.Phone",            "Phone mode"),
+        new ModeConfiguration(
             "PV",
 "DeviceInfo.Idiom == DeviceIdiom.Phone && (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180)",            "Phone Vertical mode"),
         new ModeConfiguration(
             "PH",
 "DeviceInfo.Idiom == DeviceIdiom.Phone&& (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270)",            "Phone Horizontal mode"),
+        new ModeConfiguration(
+            "T",
+"DeviceInfo.Idiom == DeviceIdiom.Tablet",            "Tablet mode"),
         new ModeConfiguration(
             "TV",
 "DeviceInfo.Idiom == DeviceIdiom.Tablet &&  (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180)",            "Tablet Vertical mode"),

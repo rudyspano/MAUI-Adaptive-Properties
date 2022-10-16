@@ -135,6 +135,10 @@ internal static class Code_Configuration
             DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270,
             "Phone/Tablet Horizontal mode"),
         Helper.CreateModeConfiguration(
+            "P",
+            DeviceInfo.Idiom == DeviceIdiom.Phone,
+            "Phone mode"),
+        Helper.CreateModeConfiguration(
             "PV",
             DeviceInfo.Idiom == DeviceIdiom.Phone && (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180),
             "Phone Vertical mode"),
@@ -142,6 +146,10 @@ internal static class Code_Configuration
             "PH",
             DeviceInfo.Idiom == DeviceIdiom.Phone&& (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation90 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation270),
             "Phone Horizontal mode"),
+        Helper.CreateModeConfiguration(
+            "T",
+            DeviceInfo.Idiom == DeviceIdiom.Tablet,
+            "Tablet mode"),
         Helper.CreateModeConfiguration(
             "TV",
             DeviceInfo.Idiom == DeviceIdiom.Tablet &&  (DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation0 || DeviceDisplay.Current.MainDisplayInfo.Rotation == DisplayRotation.Rotation180),

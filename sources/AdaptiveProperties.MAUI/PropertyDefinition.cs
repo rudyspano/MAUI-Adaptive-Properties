@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace AdaptiveProperties.MAUI;
 
@@ -24,7 +25,15 @@ internal static class PropertyDefinition
         {
             contentPage.Dispatcher.Dispatch(() =>
              {
-                 Registrations[contentPage].ForEach(propertyDefinition => propertyDefinition.ApplyProperty());
+                 //apply properties that set values AFTER properties that revert values
+                 var propertyGroups
+                    = Registrations[contentPage].GroupBy(property => property.ModeName);
+
+                 var propertiesOrdered = propertyGroups.OrderBy(propertyGroup => propertyGroup.First().IsModeApplicable)
+                  .SelectMany(propertyGroup => propertyGroup)
+                  .ToList();
+
+                 propertiesOrdered.ForEach(propertyDefinition => propertyDefinition.ApplyProperty());
              });
             return;
         }
@@ -40,7 +49,12 @@ internal static class PropertyDefinition
 
 internal interface IPropertyDefinition
 {
+    string PropertyName { get; }
+
     string ModeName { get; }
+
+    bool IsModeApplicable { get; }
+
     void ApplyProperty();
 }
 
@@ -56,13 +70,18 @@ internal class PropertyDefinition<TView, TValue> : BindableObject, IPropertyDefi
     private readonly Func<bool> _checkFunc;
     private bool _isPreviousValueSet;
 
+    public string PropertyName { get; }
+
     public string ModeName { get; }
+
+    public bool IsModeApplicable => _checkFunc();
 
     public static void ListenProperty(BindableObject bindable, object newValue,
         Func<bool> checkFunc,
         Func<TView, TValue, (bool success, TValue previousValue)> applyHandler,
         bool automaticTriggering,
-        string modeName)
+        string modeName,
+        [CallerMemberName] string callerMethodName = "")
     {
         if (!(bindable is TView))
         {
@@ -71,6 +90,7 @@ internal class PropertyDefinition<TView, TValue> : BindableObject, IPropertyDefi
         }
 
         var view = (TView)bindable;
+        var listenedPropertyName = callerMethodName.Replace("Changed", String.Empty);
 
         view.PropertyChanged += PropertyChanged;
 
@@ -80,7 +100,7 @@ internal class PropertyDefinition<TView, TValue> : BindableObject, IPropertyDefi
             if (e.PropertyName == nameof(view.Window) && view.Window != null)
             {
                 var propertyAssociation =
-                    RegisterProperty(modeName, view, (TValue)newValue, checkFunc,
+                    RegisterProperty(listenedPropertyName, modeName, view, (TValue)newValue, checkFunc,
                         (viewParameter, value) => applyHandler((TView)viewParameter, (TValue)value),
                         automaticTriggering);
                 view.PropertyChanged -= PropertyChanged;
@@ -90,6 +110,7 @@ internal class PropertyDefinition<TView, TValue> : BindableObject, IPropertyDefi
     }
 
     private static PropertyDefinition<TView, TValue> RegisterProperty(
+        string propertyName,
         string modeName,
         TView view,
         TValue value,
@@ -109,7 +130,7 @@ internal class PropertyDefinition<TView, TValue> : BindableObject, IPropertyDefi
         if (contentPage == null)
             return null;
 
-        var propertyAssociation = new PropertyDefinition<TView, TValue>(modeName, view, value, checkFunc, applyHandler);
+        var propertyAssociation = new PropertyDefinition<TView, TValue>(propertyName, modeName, view, value, checkFunc, applyHandler);
 
         var relatedRegistrations = automaticTriggering
             ? PropertyDefinition.Registrations
@@ -152,9 +173,10 @@ internal class PropertyDefinition<TView, TValue> : BindableObject, IPropertyDefi
         }
     }
 
-    private PropertyDefinition(string modeName, TView view, TValue value, Func<bool> checkFunc,
+    private PropertyDefinition(string propertyName, string modeName, TView view, TValue value, Func<bool> checkFunc,
         Func<TView, TValue, (bool success, TValue previousValue)> applyHandler)
     {
+        PropertyName = propertyName;
         ModeName = modeName;
         _view = view;
         _value = value;
