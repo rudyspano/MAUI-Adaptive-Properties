@@ -49,4 +49,36 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\AdaptiveProperties.MAUI\AdaptiveProperties.MAUI.csproj" />
 	</ItemGroup>
+
+
+	<ItemGroup>
+	  <Compile Update="Views\3-CustomMode\HomePage.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\3-CustomMode\ProductListPage.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\2-PhoneToTablet\HomePage.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\2-PhoneToTablet\ProductListPage.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\3-CustomMode\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\3-CustomMode\ProductListPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\2-PhoneToTablet\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\2-PhoneToTablet\ProductListPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 </Project>

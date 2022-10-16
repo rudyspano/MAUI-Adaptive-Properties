@@ -6,6 +6,8 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
 
-        Routing.RegisterRoute($"Home/Products", typeof(ProductListPage));
+        Routing.RegisterRoute($"VerticalToHorizontalHome/Products", typeof(VerticalToHorizontal.ProductListPage));
+        Routing.RegisterRoute($"PhoneToTabletHome/Products", typeof(PhoneToTablet.ProductListPage));
+        Routing.RegisterRoute($"CustomModeHome/Products", typeof(CustomMode.ProductListPage));
     }
 }

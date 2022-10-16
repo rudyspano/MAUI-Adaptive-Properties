@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="AdaptiveProperties.Demo.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:AdaptiveProperties.Demo"
-    Shell.FlyoutBehavior="Disabled">
+<Shell x:Class="AdaptiveProperties.Demo.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:verticalToHorizontal="clr-namespace:AdaptiveProperties.Demo.VerticalToHorizontal" xmlns:phoneToTablet="clr-namespace:AdaptiveProperties.Demo.PhoneToTablet" xmlns:customMod="clr-namespace:AdaptiveProperties.Demo.CustomMode"
+       Shell.FlyoutBehavior="Disabled">
 
     <TabBar>
         <Tab Title="VerticalToHorizontal">
             <ShellContent Title="Home"
-                ContentTemplate="{DataTemplate local:HomePage}"
-                Route="Home" /> 
+                          ContentTemplate="{DataTemplate verticalToHorizontal:HomePage}"
+                          Route="VerticalToHorizontalHome" />
         </Tab>
 
         <Tab Title="PhoneToTablet">
             <ShellContent Title="Home"
-                ContentTemplate="{DataTemplate local:HomePage}"
-                Route="Home2" />
+                          ContentTemplate="{DataTemplate phoneToTablet:HomePage}"
+                          Route="PhoneToTabletHome" />
         </Tab>
 
         <Tab Title="CustomMode">
             <ShellContent Title="Home"
-                ContentTemplate="{DataTemplate local:HomePage}"
-                Route="Home3" />
+                          ContentTemplate="{DataTemplate customMod:HomePage}"
+                          Route="CustomModeHome" />
         </Tab>
 
     </TabBar>
