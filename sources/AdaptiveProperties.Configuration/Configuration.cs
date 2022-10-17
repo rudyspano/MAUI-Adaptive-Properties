@@ -79,7 +79,11 @@ public static class Configuration
         new PropertyConfiguration("Frame", "float?",
 "CornerRadius"        ),
         new PropertyConfiguration("CollectionView", "IItemsLayout",
-"ItemsLayout"        )
+"ItemsLayout"        ),
+        new PropertyConfiguration("CollectionView", "object",
+"Header"        ),
+        new PropertyConfiguration("CollectionView", "object",
+"Footer"        )
     };
 
     public static ModeConfiguration[] Modes = new[]

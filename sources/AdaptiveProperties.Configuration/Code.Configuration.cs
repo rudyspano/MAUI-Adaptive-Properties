@@ -121,6 +121,12 @@ internal static class Code_Configuration
         ),
         Helper.CreatePropertyConfiguration<CollectionView, IItemsLayout>(
             view => view.ItemsLayout
+        ),
+        Helper.CreatePropertyConfiguration<CollectionView, object>(
+            view => view.Header
+        ),
+        Helper.CreatePropertyConfiguration<CollectionView, object>(
+            view => view.Footer
         )
     };
 

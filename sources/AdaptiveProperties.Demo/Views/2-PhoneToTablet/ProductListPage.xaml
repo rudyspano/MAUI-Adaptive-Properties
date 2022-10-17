@@ -10,15 +10,25 @@
         <viewModel:ProduitListViewModel />
     </ContentPage.BindingContext>
 
-    <CollectionView BackgroundColor="Gray"
+    <CollectionView m:T.Margin="20,0"
                     ItemsSource="{Binding ProductList}">
         <CollectionView.ItemsLayout>
             <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
         </CollectionView.ItemsLayout>
-        <m:H.ItemsLayout>
-            <GridItemsLayout HorizontalItemSpacing="1" VerticalItemSpacing="1" Orientation="Vertical"
+        <m:T.ItemsLayout>
+            <GridItemsLayout HorizontalItemSpacing="10" VerticalItemSpacing="1" Orientation="Vertical"
                              Span="2" />
-        </m:H.ItemsLayout>
+        </m:T.ItemsLayout>
+        <m:T.Header>
+            <Grid HeightRequest="60" />
+        </m:T.Header>
+        <m:T.Footer>
+            <Grid HeightRequest="60">
+                <Label HorizontalOptions="Center" VerticalOptions="Center"
+                       TextColor="White"
+                       Text="You cannot add wahever anything for the moment... :(" />
+            </Grid>
+        </m:T.Footer>
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Product">
                 <Grid Padding="8" HeightRequest="160" ColumnSpacing="8" ColumnDefinitions="140, *"
@@ -28,7 +38,7 @@
                         <VerticalStackLayout.Resources>
                             <!--  Adaptive properties can also be applied in a Style  -->
                             <Style TargetType="Label">
-                                <Setter Value="Blue" Property="m:H.TextColor" />
+                                <Setter Value="Blue" Property="m:T.TextColor" />
                             </Style>
                         </VerticalStackLayout.Resources>
                         <Label Text="{Binding Name}" />
@@ -40,11 +50,7 @@
                                Text="{Binding Price, StringFormat='{0}€'}" />
                         <Button WidthRequest="40" HeightRequest="40" HorizontalOptions="End"
                                 Text="+"
-                                m:H.IsVisible="False" CornerRadius="20" />
-                        <Button HeightRequest="40" HorizontalOptions="End"
-                                IsVisible="False"
-                                Text="Ajouter"
-                                m:H.IsVisible="True" CornerRadius="20" />
+                                CornerRadius="20" />
                     </VerticalStackLayout>
                 </Grid>
             </DataTemplate>
