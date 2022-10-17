@@ -21,7 +21,7 @@ internal static class PropertyDefinition
     {
         var contentPage = (ContentPage)sender;
 
-        if (e.PropertyName == nameof(contentPage.Height) && contentPage.Height > 0)
+        if (e.PropertyName == nameof(contentPage.Width) && contentPage.Width > 0)
         {
             contentPage.Dispatcher.Dispatch(() =>
              {
