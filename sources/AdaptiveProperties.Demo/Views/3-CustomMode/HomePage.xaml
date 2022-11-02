@@ -4,13 +4,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Model="clr-namespace:AdaptiveProperties.Demo.Model" xmlns:m="clr-namespace:AdaptiveProperties.MAUI.M;assembly=AdaptiveProperties.MAUI" xmlns:viewModel="clr-namespace:AdaptiveProperties.Demo.ViewModel"
              x:Name="HomePageInstance"
-             x:DataType="viewModel:HomeViewModel">
+             x:DataType="viewModel:HomeAccessibilityModeViewModel">
 
     <ContentPage.BindingContext>
-        <viewModel:HomeViewModel />
+        <viewModel:HomeAccessibilityModeViewModel />
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout>
+            <VerticalStackLayout.Resources>
+                <Style TargetType="Label">
+                    <Setter Value="14" Property="FontSize" />
+                    <Setter Value="20" Property="m:X.FontSize" />
+                    <Setter Value="Bold" Property="m:X.FontAttributes" />
+                </Style>
+            </VerticalStackLayout.Resources>
+
             <Grid HeightRequest="200"
                   BackgroundColor="LightYellow">
 
@@ -18,17 +26,16 @@
                     <Label VerticalOptions="Center"
                            FontAttributes="Bold"
                            Text="Accessibility Mode:" />
-                    <Switch IsToggled="False" />
+                    <Switch IsToggled="{Binding IsAccessibilityModeActivated}" />
                 </HorizontalStackLayout>
 
                 <Label Margin="10" VerticalOptions="Center"
                        FontSize="40"
-                       Text="Hello !!!"
-                       m:H.LineBreakMode="TailTruncation" m:H.Text="Welcome new User to my Demo !!!" />
+                       Text="Welcome new User to my Demo !!!"
+                       m:X.FontSize="50" m:X.Text="Welcome" />
             </Grid>
 
-            <Grid Padding="4" ColumnSpacing="4" RowSpacing="4" RowDefinitions="100,100" ColumnDefinitions="*,*,*"
-                  m:H.ColumnDefinitions="*,*,*,*">
+            <Grid Padding="4" ColumnSpacing="4" RowSpacing="4" RowDefinitions="100,100" ColumnDefinitions="*,*,*">
                 <Frame Grid.RowSpan="2"
                        BackgroundColor="Red"
                        CornerRadius="4">
@@ -37,14 +44,13 @@
                            Text="ShortCut 1" />
                 </Frame>
                 <Frame Grid.Column="1" Grid.RowSpan="2"
-                       BackgroundColor="Orange"
+                       BackgroundColor="Orange" m:X.BackgroundColor="DarkOrange"
                        CornerRadius="4">
                     <Label VerticalTextAlignment="Center"
                            TextColor="White"
                            Text="ShortCut 2" />
                 </Frame>
                 <Frame Grid.Column="2"
-                       m:H.RowSpan="2"
                        BackgroundColor="Green"
                        CornerRadius="4">
                     <Label VerticalTextAlignment="Center"
@@ -52,7 +58,6 @@
                            Text="ShortCut 3" />
                 </Frame>
                 <Frame Grid.Row="1" Grid.Column="2"
-                       m:H.Row="0" m:H.Column="3" m:H.RowSpan="2"
                        BackgroundColor="Purple"
                        CornerRadius="4">
                     <Label VerticalTextAlignment="Center"
@@ -65,19 +70,17 @@
                         JustifyContent="Center" Wrap="Wrap">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="Model:Shelf">
-                        <Grid WidthRequest="200" HeightRequest="150" RowDefinitions="Auto">
+                        <Grid WidthRequest="200" HeightRequest="150"
+                              m:X.HeightRequest="200">
                             <Frame WidthRequest="200" HeightRequest="150"
-                                   m:H.Padding="0,0,0,0"
-                                   BorderColor="Gray"
+                                   m:X.HeightRequest="200"
+                                   BorderColor="Gray" m:X.BorderColor="Black"
                                    CornerRadius="0">
-                                <StackLayout VerticalOptions="Center" m:H.Spacing="10"
-                                             m:H.Orientation="Horizontal">
+                                <StackLayout VerticalOptions="Center">
                                     <Image HeightRequest="80"
-                                           m:H.WidthRequest="100" m:H.HeightRequest="150"
-                                           m:H.Aspect="AspectFill"
+                                           m:X.HeightRequest="120"
                                            Source="{Binding ImageUrl}" />
                                     <Label HorizontalOptions="Center"
-                                           m:H.VerticalOptions="Center"
                                            Text="{Binding Name}" />
                                 </StackLayout>
                             </Frame>
@@ -89,9 +92,8 @@
                 </BindableLayout.ItemTemplate>
             </FlexLayout>
             <Image Margin="0,10" HeightRequest="100"
-                   m:H.Margin="30,10"
-                   m:H.BackgroundColor="Transparent" BackgroundColor="Black"
-                   Source="https://picsum.photos/400/100" m:H.Source="https://picsum.photos/800/100" />
+                   BackgroundColor="Black"
+                   Source="https://picsum.photos/400/100" />
         </VerticalStackLayout>
     </ScrollView>
 

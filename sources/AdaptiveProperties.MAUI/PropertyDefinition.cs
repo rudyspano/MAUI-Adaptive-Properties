@@ -25,10 +25,18 @@ internal static class PropertyDefinition
         {
             contentPage.Dispatcher.Dispatch(() =>
              {
-                 //apply properties that set values AFTER properties that revert values
-                 var propertyGroups
-                    = Registrations[contentPage].GroupBy(property => property.ModeName);
+                 var pageRegistrations = new List<IPropertyDefinition>();
 
+                 if (Registrations.ContainsKey(contentPage))
+                     pageRegistrations.AddRange(Registrations[contentPage]);
+
+                 if (RegistrationsWithManualTriggering.ContainsKey(contentPage))
+                     pageRegistrations.AddRange(RegistrationsWithManualTriggering[contentPage]);
+
+                 var propertyGroups
+                    = pageRegistrations.GroupBy(property => property.ModeName);
+
+                 //apply properties that set values AFTER properties that revert values
                  var propertiesOrdered = propertyGroups.OrderBy(propertyGroup => propertyGroup.First().IsModeApplicable)
                   .SelectMany(propertyGroup => propertyGroup)
                   .ToList();
@@ -97,14 +105,15 @@ internal class PropertyDefinition<TView, TValue> : BindableObject, IPropertyDefi
         void PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             //when Window is defined, the control is supposed to be fully integrated in visual tree
-            if (e.PropertyName == nameof(view.Window) && view.Window != null)
+            if ((e.PropertyName == nameof(view.Window) || e.PropertyName == nameof(view.Parent))
+                && view.Window != null && view.Parent != null)
             {
                 var propertyAssociation =
                     RegisterProperty(listenedPropertyName, modeName, view, (TValue)newValue, checkFunc,
                         (viewParameter, value) => applyHandler((TView)viewParameter, (TValue)value),
                         automaticTriggering);
                 view.PropertyChanged -= PropertyChanged;
-                propertyAssociation.ApplyProperty();
+                propertyAssociation?.ApplyProperty();
             }
         }
     }

@@ -8,6 +8,12 @@ public partial class HomePage
     {
         InitializeComponent();
     }
+
+    protected override void OnBindingContextChanged()
+    {
+        base.OnBindingContextChanged();
+        var viewModel = BindingContext;
+    }
 }
 
 

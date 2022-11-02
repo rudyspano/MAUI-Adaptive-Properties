@@ -89,6 +89,12 @@ internal static class Code_Configuration
         Helper.CreatePropertyConfiguration<Label, string>(
             view => view.Text
         ),
+        Helper.CreatePropertyConfiguration<Label, double?>(
+            view => view.FontSize
+        ),
+        Helper.CreatePropertyConfiguration<Label, FontAttributes?>(
+            view => view.FontAttributes
+        ),
         Helper.CreatePropertyConfiguration<Label, LineBreakMode?>(
             view => view.LineBreakMode
         ),
@@ -118,6 +124,9 @@ internal static class Code_Configuration
         ),
         Helper.CreatePropertyConfiguration<Frame, float?>(
             view => view.CornerRadius
+        ),
+        Helper.CreatePropertyConfiguration<Frame, Color>(
+            view => view.BorderColor
         ),
         Helper.CreatePropertyConfiguration<CollectionView, IItemsLayout>(
             view => view.ItemsLayout

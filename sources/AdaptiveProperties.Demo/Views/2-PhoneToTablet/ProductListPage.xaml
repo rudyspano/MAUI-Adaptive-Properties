@@ -26,7 +26,7 @@
             <Grid HeightRequest="60">
                 <Label HorizontalOptions="Center" VerticalOptions="Center"
                        TextColor="White"
-                       Text="You cannot add wahever anything for the moment... :(" />
+                       Text="You cannot add anything for the moment... :(" />
             </Grid>
         </m:T.Footer>
         <CollectionView.ItemTemplate>

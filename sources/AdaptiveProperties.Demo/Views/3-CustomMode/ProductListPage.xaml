@@ -5,9 +5,9 @@
              xmlns:model="clr-namespace:AdaptiveProperties.Demo.Model" xmlns:viewModel="clr-namespace:AdaptiveProperties.Demo.ViewModel" xmlns:m="clr-namespace:AdaptiveProperties.MAUI.M;assembly=AdaptiveProperties.MAUI"
              Title="{Binding Shelf.Name}"
              BackgroundColor="Gray"
-             x:DataType="viewModel:ProduitListViewModel">
+             x:DataType="viewModel:ProduitListAccessibilityModeViewModel">
     <ContentPage.BindingContext>
-        <viewModel:ProduitListViewModel />
+        <viewModel:ProduitListAccessibilityModeViewModel />
     </ContentPage.BindingContext>
 
     <Grid RowDefinitions="Auto,*">
@@ -15,7 +15,7 @@
             <Label VerticalOptions="Center"
                    FontAttributes="Bold"
                    Text="Accessibility Mode:" />
-            <Switch IsToggled="False" />
+            <Switch IsToggled="{Binding IsAccessibilityModeActivated}" />
         </HorizontalStackLayout>
 
         <CollectionView Grid.Row="1"
@@ -24,22 +24,14 @@
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
             </CollectionView.ItemsLayout>
-            <m:H.ItemsLayout>
-                <GridItemsLayout HorizontalItemSpacing="1" VerticalItemSpacing="1" Orientation="Vertical"
-                                 Span="2" />
-            </m:H.ItemsLayout>
+
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
                     <Grid Padding="8" HeightRequest="160" ColumnSpacing="8" ColumnDefinitions="140, *"
+                          m:X.HeightRequest="240"
                           BackgroundColor="White">
                         <Image Source="{Binding ImageUrl}" />
                         <VerticalStackLayout Grid.Column="1">
-                            <VerticalStackLayout.Resources>
-                                <!--  Adaptive properties can also be applied in a Style  -->
-                                <Style TargetType="Label">
-                                    <Setter Value="Blue" Property="m:H.TextColor" />
-                                </Style>
-                            </VerticalStackLayout.Resources>
                             <Label Text="{Binding Name}" />
                             <Label TextColor="Gray"
                                    Text="{Binding Description}" />
@@ -48,12 +40,9 @@
                             <Label FontAttributes="Bold" FontSize="30" TextColor="DarkBlue"
                                    Text="{Binding Price, StringFormat='{0}€'}" />
                             <Button WidthRequest="40" HeightRequest="40" HorizontalOptions="End"
+                                    m:X.WidthRequest="80" m:X.HeightRequest="80"
                                     Text="+"
-                                    m:H.IsVisible="False" CornerRadius="20" />
-                            <Button HeightRequest="40" HorizontalOptions="End"
-                                    IsVisible="False"
-                                    Text="Ajouter"
-                                    m:H.IsVisible="True" CornerRadius="20" />
+                                    CornerRadius="20"/>
                         </VerticalStackLayout>
                     </Grid>
                 </DataTemplate>

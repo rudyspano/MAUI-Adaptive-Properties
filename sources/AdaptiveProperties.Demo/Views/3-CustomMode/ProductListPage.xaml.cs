@@ -7,7 +7,7 @@ namespace AdaptiveProperties.Demo.CustomMode
     {
         public int ShelfId
         {
-            set => ((ProduitListViewModel) BindingContext).ShelfId = value;
+            set => ((ProduitListViewModel)BindingContext).ShelfId = value;
         }
 
         public ProductListPage()

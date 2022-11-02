@@ -360,6 +360,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(V), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, true, "V");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(V), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, true, "V");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(V), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -510,6 +544,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "V");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(V), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, true, "V");
     }
  
 
@@ -915,6 +966,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(H), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, true, "H");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(H), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, true, "H");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(H), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -1065,6 +1150,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "H");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(H), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, true, "H");
     }
  
 
@@ -1470,6 +1572,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(P), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, true, "P");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(P), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, true, "P");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(P), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -1620,6 +1756,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "P");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(P), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, true, "P");
     }
  
 
@@ -2025,6 +2178,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(PV), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, true, "PV");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(PV), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, true, "PV");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(PV), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -2175,6 +2362,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "PV");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(PV), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, true, "PV");
     }
  
 
@@ -2580,6 +2784,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(PH), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, true, "PH");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(PH), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, true, "PH");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(PH), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -2730,6 +2968,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "PH");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(PH), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, true, "PH");
     }
  
 
@@ -3135,6 +3390,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(T), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, true, "T");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(T), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, true, "T");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(T), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -3285,6 +3574,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "T");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(T), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, true, "T");
     }
  
 
@@ -3690,6 +3996,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(TV), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, true, "TV");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(TV), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, true, "TV");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(TV), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -3840,6 +4180,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "TV");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(TV), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, true, "TV");
     }
  
 
@@ -4245,6 +4602,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(TH), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, true, "TH");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(TH), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, true, "TH");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(TH), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -4395,6 +4786,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, true, "TH");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(TH), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, true, "TH");
     }
  
 
@@ -4812,6 +5220,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(X), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, false, "X");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(X), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, false, "X");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(X), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -4962,6 +5404,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, false, "X");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(X), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, false, "X");
     }
  
 
@@ -5379,6 +5838,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(X2), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, false, "X2");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(X2), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, false, "X2");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(X2), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -5529,6 +6022,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, false, "X2");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(X2), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, false, "X2");
     }
  
 
@@ -5946,6 +6456,40 @@ namespace AdaptiveProperties.MAUI.M;
     }
  
 
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.CreateAttached(
+      "FontSize", typeof(double?), typeof(X3), default(double?),
+      propertyChanged: FontSizeChanged);
+
+    public static void SetFontSize(BindableObject element, double? value) =>
+      element.SetValue(FontSizeProperty, value);
+
+    public static double? GetFontSize(BindableObject element) =>
+      (double?)element.GetValue(FontSizeProperty);
+
+    private static void FontSizeChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, double?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontSize; view.FontSize =value.Value; return (true, previousValue); }, false, "X3");
+    }
+ 
+
+    public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+      "FontAttributes", typeof(FontAttributes?), typeof(X3), default(FontAttributes?),
+      propertyChanged: FontAttributesChanged);
+
+    public static void SetFontAttributes(BindableObject element, FontAttributes? value) =>
+      element.SetValue(FontAttributesProperty, value);
+
+    public static FontAttributes? GetFontAttributes(BindableObject element) =>
+      (FontAttributes?)element.GetValue(FontAttributesProperty);
+
+    private static void FontAttributesChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Label, FontAttributes?>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.FontAttributes; view.FontAttributes =value.Value; return (true, previousValue); }, false, "X3");
+    }
+ 
+
     public static readonly BindableProperty LineBreakModeProperty = BindableProperty.CreateAttached(
       "LineBreakMode", typeof(LineBreakMode?), typeof(X3), default(LineBreakMode?),
       propertyChanged: LineBreakModeChanged);
@@ -6096,6 +6640,23 @@ namespace AdaptiveProperties.MAUI.M;
     {
       PropertyDefinition<Frame, float?>.ListenProperty(bindable, newvalue, CheckFunc,
         (view,value) => { var previousValue = view.CornerRadius; view.CornerRadius =value.Value; return (true, previousValue); }, false, "X3");
+    }
+ 
+
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.CreateAttached(
+      "BorderColor", typeof(Color), typeof(X3), default(Color),
+      propertyChanged: BorderColorChanged);
+
+    public static void SetBorderColor(BindableObject element, Color value) =>
+      element.SetValue(BorderColorProperty, value);
+
+    public static Color GetBorderColor(BindableObject element) =>
+      (Color)element.GetValue(BorderColorProperty);
+
+    private static void BorderColorChanged(BindableObject bindable, object oldvalue, object newvalue)
+    {
+      PropertyDefinition<Frame, Color>.ListenProperty(bindable, newvalue, CheckFunc,
+        (view,value) => { var previousValue = view.BorderColor; view.BorderColor =value; return (true, previousValue); }, false, "X3");
     }
  
 
