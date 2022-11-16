@@ -58,7 +58,7 @@
                         JustifyContent="Center" Wrap="Wrap">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="Model:Shelf">
-                        <Grid WidthRequest="200" HeightRequest="150" RowDefinitions="Auto">
+                        <Grid WidthRequest="180" HeightRequest="150" RowDefinitions="Auto">
                             <Frame WidthRequest="200" HeightRequest="150"
                                    m:H.Padding="0,0,0,0"
                                    BorderColor="Gray"

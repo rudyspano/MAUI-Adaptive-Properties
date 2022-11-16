@@ -70,7 +70,7 @@
                         JustifyContent="Center" Wrap="Wrap">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="Model:Shelf">
-                        <Grid WidthRequest="200" HeightRequest="150"
+                        <Grid WidthRequest="180" HeightRequest="150"
                               m:X.HeightRequest="200">
                             <Frame WidthRequest="200" HeightRequest="150"
                                    m:X.HeightRequest="200"

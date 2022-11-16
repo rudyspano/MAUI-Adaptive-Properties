@@ -63,7 +63,7 @@
                         JustifyContent="Center" Wrap="Wrap">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="Model:Shelf">
-                        <Grid WidthRequest="200" HeightRequest="150">
+                        <Grid WidthRequest="180" HeightRequest="150">
                             <Button BackgroundColor="White" BorderColor="Gray"
                                     Command="{Binding BindingContext.GotToShelfCommand, Source={x:Reference HomePageInstance}}"
                                     CommandParameter="{Binding}"

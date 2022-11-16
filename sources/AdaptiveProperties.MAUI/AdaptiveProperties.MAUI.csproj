@@ -10,7 +10,14 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Title>Adaptive Properties MAUI</Title>
         <Company>Rudy Spano</Company>
-        <Description>A library that allows you to create XAML Adaptive UI in a simple and maintaible way</Description>
+        <Description>A library that allows you to create XAML Adaptive UI in a simple and maintainable way</Description>
+        <AssemblyVersion>1.0.1</AssemblyVersion>
+        <FileVersion>1.0.1</FileVersion>
+        <AnalysisLevel>none</AnalysisLevel>
+        <Version>1.0.1</Version>
+	    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <TargetFrameworks>net6.0</TargetFrameworks>
+        <PackageTags>MAUI; Adaptive; Responsive; xam; Tablet</PackageTags>
 
         <!--<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
