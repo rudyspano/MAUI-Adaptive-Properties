@@ -40,11 +40,15 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<!-- NuGet mode -->
+	<ItemGroup>
+	  <PackageReference Include="AdaptiveProperties.MAUI" Version="1.0.3"  />
+	</ItemGroup>
 
+	<!-- Debug mode -->
 	<!--<ItemGroup>
 	  <ProjectReference Include="..\AdaptiveProperties.MAUI\AdaptiveProperties.MAUI.csproj" />
 	</ItemGroup>-->
-
 
 	<ItemGroup>
 	  <Compile Update="Views\3-CustomMode\HomePage.xaml.cs">

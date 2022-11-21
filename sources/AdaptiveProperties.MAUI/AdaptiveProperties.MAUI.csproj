@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
 		<!--<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>-->
         <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
         <!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
@@ -11,13 +10,14 @@
         <Title>Adaptive Properties MAUI</Title>
         <Company>Rudy Spano</Company>
         <Description>A library that allows you to create XAML Adaptive UI in a simple and maintainable way</Description>
-        <AssemblyVersion>1.0.1</AssemblyVersion>
-        <FileVersion>1.0.1</FileVersion>
+        <AssemblyVersion>1.0.3</AssemblyVersion>
+        <FileVersion>1.0.3</FileVersion>
         <AnalysisLevel>none</AnalysisLevel>
-        <Version>1.0.1</Version>
-	    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <TargetFrameworks>net6.0</TargetFrameworks>
-        <PackageTags>MAUI; Adaptive; Responsive; xam; Tablet</PackageTags>
+        <Version>1.0.3</Version>
+        <TargetFrameworks>net6.0-ios;net6.0-android</TargetFrameworks>
+        <PackageTags>MAUI; Adaptive; Responsive; xaml; Tablet</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 
         <!--<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -41,10 +41,6 @@
         <Generator>TextTemplatingFileGeneratorCore</Generator>
         <LastGenOutput>ViewProperties.cs</LastGenOutput>
       </None>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\AdaptiveProperties.Configuration\AdaptiveProperties.Configuration.csproj" />
     </ItemGroup>
 
     <ItemGroup>
