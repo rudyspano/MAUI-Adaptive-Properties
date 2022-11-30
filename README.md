@@ -1,4 +1,4 @@
-# MAUI-Adaptive-Properties
+# Adaptive-Properties.MAUI
 
 XAML is powerful! It allows to describe complex UI and a lot of mechanisms provide solutions to add dynamism: Triggers (DataTrigger, Adaptive Triggers), Visual States, Attached Properties, Behaviors, ...
 
