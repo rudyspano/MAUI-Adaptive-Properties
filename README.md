@@ -12,7 +12,7 @@ The goal of this library is to provide a simple way to develop and maintain UI t
 
 Example:
 
-The following XAML defines a part of UI with a Vertical orientation First Approach and overrides properties for the Horizontal orientation
+The following XAML defines a part of UI with a Vertical orientation First Approach and overrides properties for the Horizontal orientation (m:H)
 ```
 <Frame WidthRequest="200" HeightRequest="150"
        m:H.Padding="0,0,0,0"
@@ -30,3 +30,6 @@ The following XAML defines a part of UI with a Vertical orientation First Approa
     </StackLayout>
 </Frame>
 ```
+<img width="262" alt="image" src="https://user-images.githubusercontent.com/21014908/204804590-d89b9e87-4e71-4484-b74e-6c17b44be10c.png">
+=>
+<img width="267" alt="image" src="https://user-images.githubusercontent.com/21014908/204804772-6caf9c7f-f39e-4202-b0c3-e892bb2bcdbf.png">
