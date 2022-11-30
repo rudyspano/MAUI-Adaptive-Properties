@@ -14,22 +14,38 @@ Example:
 
 The following XAML defines a part of UI with a Vertical orientation First Approach and overrides properties for the Horizontal orientation (m:H)
 ```
-<Frame WidthRequest="200" HeightRequest="150"
-       m:H.Padding="0,0,0,0"
-       BorderColor="Gray"
-       CornerRadius="0">
-    <StackLayout VerticalOptions="Center" m:H.Spacing="10"
-                 m:H.Orientation="Horizontal">
-        <Image HeightRequest="80"
-               m:H.WidthRequest="100" m:H.HeightRequest="150"
-               m:H.Aspect="AspectFill"
-               Source="{Binding ImageUrl}" />
-        <Label HorizontalOptions="Center"
-               m:H.VerticalOptions="Center"
-               Text="{Binding Name}" />
-    </StackLayout>
-</Frame>
+<Grid Padding="4" ColumnSpacing="4" RowSpacing="4" RowDefinitions="100,100" ColumnDefinitions="*,*,*"
+    m:H.ColumnDefinitions="*,*,*,*">
+  <Frame Grid.RowSpan="2"
+         BackgroundColor="Red"
+         CornerRadius="4">
+      <Label VerticalTextAlignment="Center"
+             TextColor="White"
+             Text="ShortCut 1" />
+  </Frame>
+  <Frame Grid.Column="1" Grid.RowSpan="2"
+         BackgroundColor="Orange"
+         CornerRadius="4">
+      <Label VerticalTextAlignment="Center"
+             TextColor="White"
+             Text="ShortCut 2" />
+  </Frame>
+  <Frame Grid.Column="2"
+         m:H.RowSpan="2"
+         BackgroundColor="Green"
+         CornerRadius="4">
+      <Label VerticalTextAlignment="Center"
+             TextColor="White"
+             Text="ShortCut 3" />
+  </Frame>
+  <Frame Grid.Row="1" Grid.Column="2"
+         m:H.Row="0" m:H.Column="3" m:H.RowSpan="2"
+         BackgroundColor="Purple"
+         CornerRadius="4">
+      <Label VerticalTextAlignment="Center"
+             TextColor="White"
+             Text="ShortCut 4" />
+  </Frame>
+</Grid>
 ```
-<img width="262" alt="image" src="https://user-images.githubusercontent.com/21014908/204804590-d89b9e87-4e71-4484-b74e-6c17b44be10c.png">
-=>
-<img width="267" alt="image" src="https://user-images.githubusercontent.com/21014908/204804772-6caf9c7f-f39e-4202-b0c3-e892bb2bcdbf.png">
+
