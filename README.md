@@ -49,3 +49,4 @@ The following XAML defines a part of UI with a Vertical orientation First Approa
 </Grid>
 ```
 
+![Animation](https://user-images.githubusercontent.com/21014908/204878632-4b7317f0-6c00-4cc5-9cb4-8e0f565d99b0.gif)
