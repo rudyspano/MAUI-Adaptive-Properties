@@ -60,7 +60,6 @@
                     <DataTemplate x:DataType="Model:Shelf">
                         <Grid WidthRequest="180" HeightRequest="150" RowDefinitions="Auto">
                             <Frame WidthRequest="200" HeightRequest="150"
-                                   m:H.Padding="0,0,0,0"
                                    BorderColor="Gray"
                                    CornerRadius="0">
                                 <StackLayout VerticalOptions="Center" m:H.Spacing="10"
