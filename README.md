@@ -12,7 +12,7 @@ The goal of this library is to provide a simple way to develop and maintain UI t
 
 Example:
 
-The following XAML defines a part of UI with a Phone First Approach and overrides properties for Tablet (or foldable phones onpened) (m:T)
+The following XAML defines a part of UI with a Phone First Approach and overrides properties for Tablet (or foldable phone in the opened state) (m:T)
 ```
 <Grid HeightRequest="200"
       BackgroundColor="LightBlue">
@@ -23,7 +23,6 @@ The following XAML defines a part of UI with a Phone First Approach and override
            m:T.Text="Hello Tablet User :)" />
 </Grid>
 
-<!--  Specific Tablet vertical/horizontal settings  -->
 <Grid Padding="4" ColumnSpacing="4" RowSpacing="4" RowDefinitions="100,100" ColumnDefinitions="*,*,*"
       m:TH.RowDefinitions="200" m:TH.ColumnDefinitions="*,*,*,*"
       m:TV.RowDefinitions="200,200" m:TV.ColumnDefinitions="*,*">
