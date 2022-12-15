@@ -90,4 +90,11 @@ The following XAML defines a part of UI with a Phone First Approach and override
 
 ![Animation](https://user-images.githubusercontent.com/21014908/205744308-580138e6-808f-4486-bbd3-a2a1105fd52a.gif)
 
+#Different Modes
 
+You can use the following modes in order to override properties:
+
+| Description  | {Prefix}:{Name}.{PropertyName}   |
+| ------------- | ------------- |
+| Phone/Tablet Vertical mode  | m:V.{PropertyName}  |
+| Phone/Tablet Vertical mode  | m:V.{PropertyName}  |
