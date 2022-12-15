@@ -105,3 +105,31 @@ You can use the following modes in order to override properties:
 | Tablet Vertical mode  | m:TV.{PropertyName}  |
 | Tablet Horizontal mode  | m:TH.{PropertyName}  |
 | Custom mode | m:X.{PropertyName}  |
+
+# About Custom mode
+
+   Helper.CreateModeConfiguration(
+            "X",
+            "Custom mode to set and trigger via SetModeActivationChecking and TriggerModeActivationChecking methods"
+        ),
+        Helper.CreateModeConfiguration(
+            "X2",
+            "Custom mode to set and trigger via SetModeActivationChecking and TriggerModeActivationChecking methods"
+        ),
+        Helper.CreateModeConfiguration(
+            "X3",
+            "Custom mode to set and trigger via SetModeActivationChecking and TriggerModeActivationChecking methods"
+        ),
+        
+ # Properties
+-Types de propriétés
+
+-Voir Code.Configuration.cs
+
+# Technical Aspects
+
+-T4
+
+-Quand l'utiliser et ne pas l'utiliser
+
+-DataBinding non géré
