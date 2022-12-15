@@ -104,3 +104,4 @@ You can use the following modes in order to override properties:
 | Tablet mode  | m:T.{PropertyName}  |
 | Tablet Vertical mode  | m:TV.{PropertyName}  |
 | Tablet Horizontal mode  | m:TH.{PropertyName}  |
+| Custom mode | m:X.{PropertyName}  |
