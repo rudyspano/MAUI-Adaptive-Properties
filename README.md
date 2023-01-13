@@ -118,7 +118,9 @@ In order to define conditions and trigger a custom mode, you have to use the 2 f
 See more in the sample here: https://github.com/rudyspano/MAUI-Adaptive-Properties/tree/main/sources/AdaptiveProperties.Demo/Views/3-CustomMode
         
  # Properties
--Types de propriétés
+ 
+ A lot but not all properties of MAUI are available.
+ You can easily see which ones in the definition class here: https://github.com/rudyspano/MAUI-Adaptive-Properties/blob/main/sources/AdaptiveProperties.Configuration/Code.Configuration.cs
 
 -Voir Code.Configuration.cs
 
