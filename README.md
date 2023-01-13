@@ -121,11 +121,23 @@ See more in the sample here: https://github.com/rudyspano/MAUI-Adaptive-Properti
  
  A lot but not all properties of MAUI are available.
  You can easily see which ones in the definition class here: https://github.com/rudyspano/MAUI-Adaptive-Properties/blob/main/sources/AdaptiveProperties.Configuration/Code.Configuration.cs
+ 
+If some other properties are important for you, please ask for them. Future versions are coming :)
 
 # Technical Aspects
 
--T4
+## Contributions
 
--Quand l'utiliser et ne pas l'utiliser
+The project is designed to easily evolve. 
+Provided properties are called Attached Properties: https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/attached-properties?view=net-maui-7.0
 
--DataBinding non géré
+All definitions are created using T4 code Generation: https://learn.microsoft.com/en-us/visualstudio/modeling/code-generation-and-t4-text-templates?view=vs-2022
+
+## Remarks & Limitations
+
+The real benefit of this Library depends, of course, of your needs. It is really efficient if the amount of adapations is reasonable => if a lot of adaptations are required, you should probably create specific views.
+If your adaptations are mainly based on colors, fontSize (...) and do not concern layout properties, you should simply use Theming out-of-the-box features: https://learn.microsoft.com/en-us/dotnet/maui/user-interface/theming?view=net-maui-7.0
+
+For the moment, properties does'nt handle DataBinding with value tracking and it's not really a goal considering efficient existing mechanisms.
+
+If this project interests you, please share or better contribute :)
