@@ -140,4 +140,4 @@ If your adaptations are mainly based on colors, fontSize (...) and do not concer
 
 For the moment, properties does'nt handle DataBinding with value tracking and it's not really a goal considering efficient existing mechanisms.
 
-If this project interests you, please share or better contribute :)
+If this project interests you, please share or contribute :)
