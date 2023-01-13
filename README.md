@@ -109,18 +109,13 @@ You can use the following modes in order to override properties:
 
 # About Custom mode
 
-   Helper.CreateModeConfiguration(
-            "X",
-            "Custom mode to set and trigger via SetModeActivationChecking and TriggerModeActivationChecking methods"
-        ),
-        Helper.CreateModeConfiguration(
-            "X2",
-            "Custom mode to set and trigger via SetModeActivationChecking and TriggerModeActivationChecking methods"
-        ),
-        Helper.CreateModeConfiguration(
-            "X3",
-            "Custom mode to set and trigger via SetModeActivationChecking and TriggerModeActivationChecking methods"
-        ),
+If you need to handle other modes based on another state (depending on accessibility for example), you can override properties by using m:X.{PropertyName}, m:X2.{PropertyName}, m:X3.{PropertyName}.
+In order to define conditions and trigger a custom mode, you have to use the 2 following methods:
+
+- X.SetModeActivationChecking(() => return ConditionInstruction());
+- X.TriggerModeActivationChecking();
+
+See more in the sample here: https://github.com/rudyspano/MAUI-Adaptive-Properties/tree/main/sources/AdaptiveProperties.Demo/Views/3-CustomMode
         
  # Properties
 -Types de propriétés
