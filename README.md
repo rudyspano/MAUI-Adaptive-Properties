@@ -122,8 +122,6 @@ See more in the sample here: https://github.com/rudyspano/MAUI-Adaptive-Properti
  A lot but not all properties of MAUI are available.
  You can easily see which ones in the definition class here: https://github.com/rudyspano/MAUI-Adaptive-Properties/blob/main/sources/AdaptiveProperties.Configuration/Code.Configuration.cs
 
--Voir Code.Configuration.cs
-
 # Technical Aspects
 
 -T4
